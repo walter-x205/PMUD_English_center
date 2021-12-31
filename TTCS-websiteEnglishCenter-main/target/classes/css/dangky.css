@@ -1,0 +1,116 @@
+.content{
+	text-align:left;
+	margin:0 10vw;
+	background-color: white;
+}
+.content .breadcrumb{
+	background-color: white;
+	margin: 0;
+}
+.content .breadcrumb a{
+	text-decoration: none;
+	color: #1f222d;
+}
+.content .breadcrumb a:hover{
+	color: rgba(255, 0, 0, 0.89);
+}
+.content hr{
+	margin: 0;
+}
+.content .subcribe_account{
+    text-align: center;
+    width: 600px;
+    margin:  35px auto;
+    box-shadow: 0 0 1px 1px gray;
+    border-radius: 5px;
+    padding: 40px;
+}
+.content .subcribe_account .subcribe_form{
+    margin-bottom: 30px;
+}
+.input-group-text >i{
+    width: 20px;
+}
+
+
+
+/* ================= */
+.register{
+    background: #f8f9fa;
+}
+@-webkit-keyframes mover {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-20px); }
+}
+@keyframes mover {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-20px); }
+}
+.register .register-form{
+    padding: 0 25%;
+/*     margin-top: 10%; */
+}
+.register .register-form .input-group-text >i{
+    width: 20px;
+}
+.btnRegister_right{
+    float: right;
+    border: none;
+    border-radius: 1.5rem;
+    padding: 1%;
+    
+    color: #fff;
+    font-weight: 600;
+    width: 20%;
+    cursor: pointer;
+	margin-right: 120px;
+}
+.btnRegister_left{
+    float: left;
+    border: none;
+    border-radius: 1.5rem;
+    padding: 1%;
+
+    color: #fff;
+    font-weight: 600;
+    width: 20%;
+    cursor: pointer;
+	margin-left: 120px;
+}
+.register .nav-tabs{
+    margin-top: 3%;
+    border: none;
+    background: #0062cc;
+    border-radius: 1.5rem;
+    width: 28%;
+    float: right;
+}
+.register .nav-tabs .nav-link{
+    padding: 2%;
+    height: 34px;
+    font-weight: 600;
+    color: #fff;
+    border-top-right-radius: 1.5rem;
+    border-bottom-right-radius: 1.5rem;
+}
+.register .nav-tabs .nav-link:hover{
+    border: none;
+}
+.register .nav-tabs .nav-link.active{
+    width: 100px;
+    color: #0062cc;
+    border: 2px solid #0062cc;
+    border-top-left-radius: 1.5rem;
+    border-bottom-left-radius: 1.5rem;
+}
+.register-heading{
+    text-align: center;
+    margin-top: 5%;
+    color: #495057;
+}
+.register-message{
+	text-align: center;
+
+    color: red;
+    height:20px
+}

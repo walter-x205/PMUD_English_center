@@ -1,0 +1,49 @@
+
+.content{
+	text-align:left;
+	margin:0 10vw;
+	background-color: white;
+	margin-bottom: 20px;
+}
+.content .breadcrumb{
+	background-color: white;
+	margin: 0;
+}
+.content .breadcrumb a{
+	text-decoration: none;
+	color: #1f222d;
+}
+.content .breadcrumb a:hover{
+	color: rgba(255, 0, 0, 0.89);
+}
+.content hr{
+	margin: 0;
+}
+.content .contact_info{
+	display: flex;
+	justify-content: space-between;
+}
+.content .contact_info ul{
+	list-style-type: none;
+}
+.content .contact_info ul li{
+	margin-bottom: 20px;
+}
+.content .contact_info ul li i{
+	color: rgba(255, 0, 0, 0.89);
+	font-size: 25px;
+	width: 35px;
+	text-align: center;
+}
+.content .contact_info ul li a{
+	color: #1f222d;
+}
+.content .contact_info ul li:hover a{
+	color: rgba(255, 0, 0, 0.89);
+	text-decoration: none;
+}
+.content .contact_form .text-center .btn{
+	width: 150px;
+	background-color: rgba(255, 0, 0, 0.89);
+	border: none;
+}
