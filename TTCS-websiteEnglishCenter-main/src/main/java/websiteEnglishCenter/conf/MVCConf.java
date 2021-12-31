@@ -18,6 +18,7 @@ public class MVCConf implements WebMvcConfigurer {
 		registry.addResourceHandler("/lib/**").addResourceLocations("classpath:/lib/");
 		registry.addResourceHandler("/dist/**").addResourceLocations("classpath:/dist/");
 		registry.addResourceHandler("/plugins/**").addResourceLocations("classpath:/plugins/");
+		registry.addResourceHandler("/ptud/**").addResourceLocations("classpath:/ptud/");
 	}
 	@Bean
 	public ViewResolver viewResolver() {

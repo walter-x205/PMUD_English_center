@@ -36,7 +36,7 @@ public class AdminHomepageController {
 	@RequestMapping(value = { "/admin" }, method = RequestMethod.GET)
 	public String admin(final Model model, final HttpServletRequest request, final HttpServletResponse response)
 			throws IOException {
-		return "administrator/admin";
+		return "admin/admin";
 
 	}
 	@RequestMapping(value = { "/classList" }, method = RequestMethod.GET)
@@ -51,7 +51,7 @@ public class AdminHomepageController {
 		model.addAttribute("teacherList",teacherList);
 		List<Course> courseList = course.getAllCourses();
 		model.addAttribute("courseList",courseList);
-		return "administrator/classList";
+		return "admin/classList";
 	}
 	@RequestMapping(value = { "/studentList" }, method = RequestMethod.GET)
 	public String getStudentList(final Model model, final HttpServletRequest request, final HttpServletResponse response)
@@ -59,7 +59,7 @@ public class AdminHomepageController {
 		StudentDAO stDAO = new StudentDAO();
 		List<Student> studentList = stDAO.getAllStudents();
 		model.addAttribute("studentList",studentList);
-		return "administrator/studentList";
+		return "admin/studentList";
 	}
 	@RequestMapping(value = { "/courseList" }, method = RequestMethod.GET)
 	public String getCourseList(final Model model, final HttpServletRequest request, final HttpServletResponse response)
@@ -68,7 +68,7 @@ public class AdminHomepageController {
 		CourseDAO courseDAO = new CourseDAO();
 		courseList = courseDAO.getAllCourses();
 		model.addAttribute("courseList",courseList);
-		return "administrator/courseList";
+		return "admin/courseList";
 	}
 	@RequestMapping(value = { "/teacherList" }, method = RequestMethod.GET)
 	public String getTeacherList(final Model model, final HttpServletRequest request, final HttpServletResponse response)
@@ -77,7 +77,7 @@ public class AdminHomepageController {
 		TeacherDAO teacherDAO = new TeacherDAO();
 		teacherList = teacherDAO.getAllTeachers();
 		model.addAttribute("teacherList",teacherList);
-		return "administrator/teacherList";
+		return "admin/teacherList";
 	}
 	
 
