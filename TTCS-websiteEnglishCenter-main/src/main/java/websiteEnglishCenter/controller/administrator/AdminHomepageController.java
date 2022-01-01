@@ -51,8 +51,11 @@ public class AdminHomepageController {
 		model.addAttribute("teacherList",teacherList);
 		List<Course> courseList = course.getAllCourses();
 		model.addAttribute("courseList",courseList);
-		return "admin/classList";
+		return "administrator/classList";
+//		return "admin/classList"; đừng xoá dòng này nhé
 	}
+	
+	
 	@RequestMapping(value = { "/studentList" }, method = RequestMethod.GET)
 	public String getStudentList(final Model model, final HttpServletRequest request, final HttpServletResponse response)
 			throws IOException {
