@@ -41,9 +41,7 @@
 									placeholder="Search by order#, name...">
 							</div>
 							<div class="px-2">
-								<button type="button" class="btn btn-secondary add-button">
-									<i class="fas fa-plus"></i> Thêm khóa học mới
-								</button>
+								<a type="button" class="btn btn-secondary add-button" href="${base }/addNewCourse"><i class="fas fa-plus"></i>Thêm khóa học mới</a> 
 								<i class="fa fa-ellipsis-h ms-3"></i>
 							</div>
 						</div>
@@ -64,9 +62,10 @@
 										<td>Một khóa nào đấy</td>
 										<td>..buổi</td>
 										<td>Tạm chấp nhận được</td>
-										<td class="text-end"><a href=""><i
-												class="fas fa-edit"></i></a> <a href=""><i
-												class="fas fa-times"></i></a></td>
+										<td class="text-end">
+											<a href="${base }/infoCourse"><i class="fas fa-edit"></i></a> 
+											<a href=""><i class="fas fa-times"></i></a>
+										</td>
 									</tr>
 								</tbody>
 							</table>

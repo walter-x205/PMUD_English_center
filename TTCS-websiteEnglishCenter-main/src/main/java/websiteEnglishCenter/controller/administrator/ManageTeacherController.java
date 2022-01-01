@@ -28,7 +28,7 @@ public class ManageTeacherController {
 			throws IOException {
 		Teacher teacher =new Teacher();
 		model.addAttribute("teacher",teacher);
-		return "administrator/addNewTeacher";
+		return "admin/addNewTeacher";
 
 	}
 	@RequestMapping(value = { "/addNewTeacher" }, method = RequestMethod.POST)

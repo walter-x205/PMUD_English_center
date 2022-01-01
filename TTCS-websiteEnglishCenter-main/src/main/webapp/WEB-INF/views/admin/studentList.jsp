@@ -25,9 +25,9 @@
 	<!--Slidebar-->
 	<div id="layoutSidenav">
 		<!--Slidebar-->
-        <jsp:include page="/WEB-INF/views/admin/layouts/slidebar.jsp"></jsp:include>
-        <!--Slidebar-->
-        
+		<jsp:include page="/WEB-INF/views/admin/layouts/slidebar.jsp"></jsp:include>
+		<!--Slidebar-->
+
 		<!---This is Content-->
 		<div id="layoutSidenav_content">
 			<main>
@@ -41,9 +41,7 @@
 									placeholder="Search by order#, name...">
 							</div>
 							<div class="px-2">
-								<button type="button" class="btn btn-secondary add-button">
-									<i class="fas fa-plus"></i> Thêm học viên mới
-								</button>
+								<a type="button" class="btn btn-secondary add-button" href="${base }/addNewStudent"><i class="fas fa-plus"></i>Thêm học viên mới</a> 
 								<i class="fa fa-ellipsis-h ms-3"></i>
 							</div>
 						</div>
@@ -68,7 +66,7 @@
 										<td>Undifined</td>
 										<td>0.12312312</td>
 										<td>tatue@...</td>
-										<td class="text-end"><a href=""><i
+										<td class="text-end"><a href="${base }/infoStudent"><i
 												class="fas fa-edit"></i></a> <a href=""><i
 												class="fas fa-times"></i></a></td>
 									</tr>
@@ -79,8 +77,8 @@
 		</div>
 	</div>
 	<!--This is Footer-->
-    <jsp:include page="/WEB-INF/views/admin/layouts/footer.jsp"></jsp:include>
-    <jsp:include page="/WEB-INF/views/admin/layouts/js.jsp"></jsp:include>
+	<jsp:include page="/WEB-INF/views/admin/layouts/footer.jsp"></jsp:include>
+	<jsp:include page="/WEB-INF/views/admin/layouts/js.jsp"></jsp:include>
 
 </body>
 

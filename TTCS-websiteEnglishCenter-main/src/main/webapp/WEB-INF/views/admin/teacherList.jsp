@@ -37,7 +37,7 @@
                              <input class="form-control w-100" placeholder="Search by order#, name..."> 
                             </div>
                             <div class="px-2">
-                             <button type="button" class="btn btn-secondary add-button"><i class="fas fa-plus"></i>Thêm giảng viên mới</button> 
+                             <a type="button" class="btn btn-secondary add-button" href="${base }/addNewTeacher"><i class="fas fa-plus"></i>Thêm giảng viên mới</a> 
                              <i class="fa fa-ellipsis-h ms-3"></i>
 							</div>
                         </div>
@@ -66,7 +66,7 @@
                                         <td>0.12312312</td>
                                         <td>thuychu@...</td>
                                         <td>provip</td>
-                                        <td class="text-end"><a href=""><i class="fas fa-edit"></i></a> <a href=""><i class="fas fa-times"></i></a></td>
+                                        <td class="text-end"><a href="${base }/infoTeacher"><i class="fas fa-edit"></i></a> <a href=""><i class="fas fa-times"></i></a></td>
                                     </tr>
                                 </tbody>
                             </table>

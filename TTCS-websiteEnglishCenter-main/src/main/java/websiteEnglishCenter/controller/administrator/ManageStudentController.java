@@ -36,7 +36,7 @@ public class ManageStudentController {
 			throws IOException {
 		Student st = new Student();
 		model.addAttribute("st",st);
-		return "administrator/addNewStudent";
+		return "admin/addNewStudent";
 
 	}
 	@RequestMapping(value = { "/addNewStudent" }, method = RequestMethod.POST)

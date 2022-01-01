@@ -63,6 +63,7 @@ public class AdminHomepageController {
 		List<Student> studentList = stDAO.getAllStudents();
 		model.addAttribute("studentList",studentList);
 		return "admin/studentList";
+//		return "administrator/studentList";
 	}
 	@RequestMapping(value = { "/courseList" }, method = RequestMethod.GET)
 	public String getCourseList(final Model model, final HttpServletRequest request, final HttpServletResponse response)
@@ -71,6 +72,7 @@ public class AdminHomepageController {
 		CourseDAO courseDAO = new CourseDAO();
 		courseList = courseDAO.getAllCourses();
 		model.addAttribute("courseList",courseList);
+//		return "administrator/courseList";
 		return "admin/courseList";
 	}
 	@RequestMapping(value = { "/teacherList" }, method = RequestMethod.GET)
@@ -81,6 +83,7 @@ public class AdminHomepageController {
 		teacherList = teacherDAO.getAllTeachers();
 		model.addAttribute("teacherList",teacherList);
 		return "admin/teacherList";
+//		return "administrator/teacherList";
 	}
 	
 
