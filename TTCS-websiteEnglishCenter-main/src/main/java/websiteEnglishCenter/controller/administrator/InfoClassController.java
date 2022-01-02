@@ -103,7 +103,7 @@ public class InfoClassController {
 		List<Subscriber> subscriberList = sub.getAllSubscribersByIdCourse(infoClass.getIdCourse());
 		model.addAttribute("subscriberList",subscriberList);
 		
-		return "administrator/infoClass";
+		return "admin/infoClass";
 	}
 	@RequestMapping(value = {"/infoClass/{ClassID}"}, method = RequestMethod.GET)
 	public String getClassInfo(final Model model, final HttpServletRequest request, final HttpServletResponse response, @PathVariable("ClassID") int ClassID)

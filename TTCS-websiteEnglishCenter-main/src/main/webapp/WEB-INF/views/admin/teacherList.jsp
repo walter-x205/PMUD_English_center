@@ -41,7 +41,7 @@
                              <i class="fa fa-ellipsis-h ms-3"></i>
 							</div>
                         </div>
-                        <div class="table-responsive">
+                        <div class="table-responsive table-scroll">
                             <table class="table table-responsive table-borderless table-hover">
                                 <thead>
                                     <tr class="bg-header">

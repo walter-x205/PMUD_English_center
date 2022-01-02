@@ -81,6 +81,13 @@ body {
     }
 }
 
+.table-scroll {
+    height: 400px;
+    overflow: scroll;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
 .n-t {
     color: #888 !important;
 }
@@ -648,7 +655,7 @@ button {
 }
 
 .card-user .card-body {
-    min-height: 240px;
+    min-height: 180px;
 }
 
 .card-user hr {
@@ -682,7 +689,37 @@ p.description {
 }
 
 .button-container {
-    height: 73px;
+    min-height: 30px;
+}
+
+.mt--1 {
+    margin-top: -10px;
+    margin-bottom: 10px;
+}
+
+.fz4 {
+    font-size: 16px;
+}
+
+.ml-9 {
+    margin-left: 90px;
+    margin-top: 20px;
+}
+
+.table-title {
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.m-l5 {
+    margin-left: 130px;
+}
+
+.text-right {
+    float: right;
+    margin: auto;
+    margin-right: 20px;
 }
 
 .social-media {
