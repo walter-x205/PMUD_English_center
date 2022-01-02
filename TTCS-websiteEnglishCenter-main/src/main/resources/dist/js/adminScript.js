@@ -118,7 +118,53 @@ function createClass(){
 		error: function(jqXhr,textStatus,errorMessage){}
 	});
 }
-function addSchedule(idclass,idSchedule){
+
+//js tạo lich mới
+var scheduleList =[];
+function addNewSchedule(idclass,idSchedule){
+	var times = document.getElementById("times").value;
+	var weeksday = document.getElementById("weeksday").value;
+	var classroomName = document.getElementById("classroom").value;
+	var schedule ={times: times, weeksday: weeksday, classroomName: classroomName,idClass: idclass};
+	scheduleList.push(schedule);
+	alert(times+"#"+weeksday+"#"+classroomName+" # "+idSchedule+" # "+scheduleList.length);
+	showSchedule();
+	jQuery.ajax({
+		url:"/addSchedule",
+		type:"post",
+		contentType:"application/json",
+		data:JSON.stringify(schedule),
+		success: function(jsonResult){
+			alert("Thêm lịch học thành công!");
+		},
+		error: function(jqXhr,textStatus,errorMessage){}
+	});
+	
+}
+function showSchedule(idSchedule){
+
+	//id table
+	var table = document.getElementById("scheduleTable");
+	
+	for(var i =0; i< scheduleList.length; i++){
+		var schedule = scheduleList[i];
+		
+		var row = table.insertRow();
+		
+		var cell1 = row.insertCell(0);
+		var cell2 = row.insertCell(1);
+		var cell3 = row.insertCell(2);
+		var cell4 = row.insertCell(3);
+		
+		cell1.innerHTML = schedule.times;
+		cell2.innerHTML = schedule.weeksday;
+		cell3.innerHTML = schedule.classroomName;
+		//cell4.innerHTML = '<button class="btn btn-secondary btn-round" style="font-size: 12px;" name="delete_btn" value="${o.idSchedule }" onclick="deleteSchedule(this)" type="button">Xóa</button>';
+	}
+	scheduleList =[];
+}
+//js tạo lich mới
+/*function addSchedule(idclass,idSchedule){
 	var times = document.getElementById("times").value;
 	var weeksday = document.getElementById("weeksday").value;
 	var classroomName = document.getElementById("classroom").value;
@@ -132,16 +178,17 @@ function addSchedule(idclass,idSchedule){
 		contentType:"application/json",
 		data:JSON.stringify(schedule),
 		success: function(jsonResult){
-			alert("Thêm lịch học thành công!")
+			alert("Thêm lịch học thành công!");
 		},
 		error: function(jqXhr,textStatus,errorMessage){}
 	});
-}
+}*/
 
 function deleteSchedule(x){
 	var tr = x.parentElement.parentElement;
 	tr.remove();
 	var idSchedule = x.value;
+	alert(idSchedule);
 	var data={idSchedule: idSchedule};
 	jQuery.ajax({
 		url:"/deleteSchedule",

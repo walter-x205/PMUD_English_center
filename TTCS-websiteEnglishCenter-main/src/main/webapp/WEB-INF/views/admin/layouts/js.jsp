@@ -11,3 +11,5 @@
 	src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
 	crossorigin="anonymous"></script>
 <script src="${base }/dist/js/adminScript.js"></script> 
+<!-- Summernote -->
+<script src="${base }/plugins/summernote/summernote-bs4.min.js"></script>

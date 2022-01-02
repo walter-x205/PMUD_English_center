@@ -12,7 +12,7 @@
 	content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 <meta name="description" content="" />
 <meta name="author" content="" />
-<title>Student Edit</title>
+<title>Add New Student</title>
 <jsp:include page="/WEB-INF/views/common/variables.jsp"></jsp:include>
 <jsp:include page="/WEB-INF/views/admin/layouts/css.jsp"></jsp:include>
 </head>

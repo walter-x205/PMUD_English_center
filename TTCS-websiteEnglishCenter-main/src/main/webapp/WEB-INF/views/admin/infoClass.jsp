@@ -125,15 +125,6 @@
 										<option >${o.weeksday }</option>
 									</c:forEach>												
 								</select>
-								<!-- <select class="form-select">
-									<option selected>Thứ 2</option>
-									<option value="1">Thứ 3</option>
-									<option value="2">Thứ 4</option>
-									<option value="3">Thứ 5</option>
-									<option value="4">Thứ 6</option>
-									<option value="5">Thứ 7</option>
-									<option value="6">Chủ nhật</option>
-								</select> -->
 							</div>
 						</div>
 						<div class="col-md-3">
@@ -143,24 +134,20 @@
 									<c:forEach items="${clrList }" var="o">
 										<option >${o.classroomName }</option>
 									</c:forEach>
-								</select>
-								<!-- <select class="form-select">
-									<option selected>Phòng 1</option>
-									<option value="1">Phòng 2</option>
-									<option value="2">Phòng 3</option>
-									<option value="3">Phòng 4</option>
-								</select> -->
+								</select>								
 							</div>
 						</div>
 						<div class="col-md-3">
 							<br>
-							<button type="submit" class="btn btn-secondary btn-round">Thêm
+							<%-- <a class="btn btn-success btn-sm py-2 form-control"  href="${base }/infoClass?id=${infoClass.idClass}" onclick="addSchedule(${infoClass.idClass},${maxScheduleID})" role="button" >
+									<i class="far fa-calendar-plus"></i> Thêm lịch</a> --%>
+							<button type="submit" class="btn btn-secondary btn-round" onclick="addNewSchedule(${infoClass.idClass},${maxScheduleID});">Thêm
 								Lịch</button>
 						</div>
 					</div>
 					<div class="table-responsive"
 						style="overflow: scroll; height: 320px;">
-						<table class="table table-responsive table-borderless">
+						<table class="table table-responsive table-borderless" id="scheduleTable">
 							<thead>
 								<tr class="bg-header">
 									<th scope="col" width="30%">Thời gian</th>

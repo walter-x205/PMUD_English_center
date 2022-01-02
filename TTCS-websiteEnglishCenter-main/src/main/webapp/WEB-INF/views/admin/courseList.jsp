@@ -66,8 +66,7 @@
 											<td class="d-flex">
 												<a href="${base }/infoCourse?id=${o.courseID }"><i class="fas fa-edit"></i></a> 
 												<a name="delete_btn" onclick="deleteCourseToCourseList(this,${o.courseID});" role="button"><i class="fas fa-times"></i></a>
-												<%-- <a class="btn btn-outline-primary btn-sm py-2 form-control w-40" href="${base }/infoCourse?id=${o.courseID }"><i class="fas fa-edit"></i></a> 
-												<button class="btn btn-outline-primary btn-sm py-2 form-control w-40" name="delete_btn" onclick="deleteCourseToCourseList(this,${o.courseID});" type="button"><i class="fas fa-trash-alt"></i></button> --%>
+											</td>
 										</tr>
 									</tbody>
 								</c:forEach>
