@@ -18,8 +18,8 @@
                 </a>
                 <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                     <nav class="sb-sidenav-menu-nested nav">
-                        <a class="nav-link" href="TeạcherList.html">Quản lý Giảng Viên</a>
-                        <a class="nav-link" href="StudentList.html">Quản lý Học Viên</a>
+                        <a class="nav-link" href="${base }/teacherList">Quản lý Giảng Viên</a>
+                        <a class="nav-link" href="${base }/studentList">Quản lý Học Viên</a>
                     </nav>
                 </div>
 
@@ -36,8 +36,8 @@
                             </a>
                         <div class="collapse" id="pagesCollapseAuth" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordionPages">
                             <nav class="sb-sidenav-menu-nested nav">
-                                <a class="nav-link" href="CourseList.html">Danh sách</a>
-                                <a class="nav-link" href="#">Thêm khóa học</a>
+                                <a class="nav-link" href="${base }/courseList">Danh sách</a>
+                                <a class="nav-link" href="${base }/addNewCourse">Thêm khóa học</a>
                             </nav>
                         </div>
                         <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#pagesCollapseError" aria-expanded="false" aria-controls="pagesCollapseError">
@@ -46,8 +46,8 @@
                             </a>
                         <div class="collapse" id="pagesCollapseError" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordionPages">
                             <nav class="sb-sidenav-menu-nested nav">
-                                <a class="nav-link" href="ClassList.html">Danh sách</a>
-                                <a class="nav-link" href="addClass.html">Thêm lớp học</a>
+                                <a class="nav-link" href="${base }/classList">Danh sách</a>
+                                <a class="nav-link" href="${base }/addNewClass">Thêm lớp học</a>
                             </nav>
                         </div>
                     </nav>
@@ -58,9 +58,9 @@
                 </a>
                 <div class="collapse" id="pagesCollapseAuth" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordionPages">
                     <nav class="sb-sidenav-menu-nested nav">
-                        <a class="nav-link" href="Acount-admin.html">Tài khoản Nhân Viên</a>
-                        <a class="nav-link" href="Acount-teacher.html">Tài khoản Giảng Viên</a>
-                        <a class="nav-link" href="account-student.html">Tài khoản Học Viên</a>
+                        <a class="nav-link" href="${base }/accountList/nhan-vien">Tài khoản Nhân Viên</a>
+                        <a class="nav-link" href="${base }/accountList/hoc-vien">Tài khoản Giảng Viên</a>
+                        <a class="nav-link" href="${base }/accountList/giang-vien">Tài khoản Học Viên</a>
                     </nav>
                 </div>
                 <a class="nav-link" href="profile.html">

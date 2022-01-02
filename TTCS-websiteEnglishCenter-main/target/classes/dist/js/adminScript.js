@@ -1,5 +1,4 @@
 
-
 $(document).ready(function() {
     $('#description').summernote({
       placeholder: 'Enter content....',
@@ -290,17 +289,12 @@ function addNewStudent(){
 	var  fullName=document.getElementById('fullName').value;
 	var  date=document.getElementById('birthday').value;
 	var  birthday = new Date(date);
-	var	 genders = document.getElementsByName('gender');
-	var  gender = '';
-	for(var i = 0; i < genders.length; i++){
-		if(genders[i].checked == true){
-			gender = genders[i].value;
-		}
-	}
+	var	 gender = document.getElementById('gender').value;
 	var  phone=document.getElementById('phone').value;
 	var  email=document.getElementById('email').value;
 	var  address=document.getElementById('address').value;
 	var data ={fullName: fullName,birthday: birthday,gender: gender,phone: phone,email: email,address: address};
+	/*alert(fullName+" "+birthday+" "+gender+" "+address+" "+phone+" "+email+" ");*/
 	jQuery.ajax({
 		url:"/addNewStudent",
 		type:"post",
@@ -411,13 +405,7 @@ function addNewTeacher(){
 	var  fullName=document.getElementById('fullName').value;
 	var  date=document.getElementById('birthday').value;
 	var  birthday = new Date(date);
-	var	 genders = document.getElementsByName('gender');
-	var  gender = '';
-	for(var i = 0; i < genders.length; i++){
-		if(genders[i].checked == true){
-			gender = genders[i].value;
-		}
-	}
+	var	 gender = document.getElementById('gender').value;
 	var  phone=document.getElementById('phone').value;
 	var  email=document.getElementById('email').value;
 	var  address=document.getElementById('address').value;
@@ -434,7 +422,7 @@ function addNewTeacher(){
 			$('body').load('/teacherList');
 		},
 		error: function(jqXhr,textStatus,errorMessage){
-			alert("Lỗi gì đấy rồi");
+			alert("Lỗi");
 		}
 	});
 }

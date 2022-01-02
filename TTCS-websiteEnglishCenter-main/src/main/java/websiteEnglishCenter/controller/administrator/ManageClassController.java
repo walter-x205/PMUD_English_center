@@ -31,7 +31,7 @@ import websiteEnglishCenter.dto.Teacher;
 import websiteEnglishCenter.dto.Schedule;
 
 @Controller
-public class AddAndDeleteClassController {
+public class ManageClassController {
 	@RequestMapping(value = { "/addNewClass" }, method = RequestMethod.GET)
 	public String addInfo(final Model model, final HttpServletRequest request, final HttpServletResponse response)
 			throws IOException {
@@ -46,7 +46,7 @@ public class AddAndDeleteClassController {
 		model.addAttribute("clrList", clrList);
 		List<DayOfWeeks> weeksdayList = classDAO.getAllWeeksday();
 		model.addAttribute("weeksdayList", weeksdayList);
-		return "administrator/addNewClass";
+		return "admin/addNewClass";
 
 	}
 	@RequestMapping(value = {"/addNewClass"},method = RequestMethod.POST)

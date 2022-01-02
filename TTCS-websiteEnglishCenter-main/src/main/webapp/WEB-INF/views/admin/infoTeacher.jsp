@@ -12,7 +12,7 @@
 	content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 <meta name="description" content="" />
 <meta name="author" content="" />
-<title>Class List</title>
+<title>Course List</title>
 <jsp:include page="/WEB-INF/views/common/variables.jsp"></jsp:include>
 <jsp:include page="/WEB-INF/views/admin/layouts/css.jsp"></jsp:include>
 </head>
@@ -41,8 +41,7 @@
 									placeholder="Search by order#, name...">
 							</div>
 							<div class="px-2">
-								
-								<a type="button" class="btn btn-secondary add-button" href="${base }/addNewClass"><i class="fas fa-plus"></i>Thêm lớp học mới</a> 
+								<a type="button" class="btn btn-secondary add-button" href="${base }/addNewCourse"><i class="fas fa-plus"></i>Thêm khóa học mới</a> 
 								<i class="fa fa-ellipsis-h ms-3"></i>
 							</div>
 						</div>
@@ -51,45 +50,26 @@
 								<thead>
 									<tr class="bg-header">
 										<th scope="col" width="5%">ID</th>
-										<th scope="col" width="10%">Tên Lớp</th>
-										<th scope="col" width="10%">Khóa học</th>
-										<th scope="col" width="15%">Ngày bắt đầu</th>
-										<th scope="col" width="10%">Học phí</th>
-										<th scope="col" width="20%">Giảng viên</th>
-										<th scope="col" width="10%">Trạng thái</th>
+										<th scope="col" width="15%">Tên khóa học</th>
+										<th scope="col" width="15%">Thời lượng</th>
+										<th scope="col" width="45%">Mô tả khóa học</th>
 										<th scope="col" class="text-end" width="10%"><span>Action</span></th>
 									</tr>
 								</thead>
-								<c:forEach items="${cList }" var="o">
-									<tbody>
-										<tr>
-											<th scope="row" name="idClass"><a href="${base }/infoClass?id=${o.idClass}"  >${o.idClass}</a></th>
-											<td name="idClass"><a href="${base }/infoClass?id=${o.idClass}"  >${o.className}</a></td>
-											<c:forEach items="${courseList }" var="couList">
-												<c:if test="${couList.courseID == o.idCourse }">
-													<td >${couList.courseName}</td>
-												</c:if>
-											</c:forEach>
-											<td>${o.startDate}</td>
-											<td>${o.tuitionFees}₫</td>
-											<td>${o.tuitionFeeSales}₫</td>
-											<c:if test="${o.status==1}"><td>Đang học</td></c:if>
-											<c:if test="${o.status==0}"><td>Hoàn Thành</td></c:if>
-											<td class="text-end">
-												<a href="${base }/infoClass?id=${o.idClass}" role="button"><i class="fas fa-edit"></i></a> 
-												<a name="delete_btn" onclick="deleteClass(this,${o.idClass});" role="button"><i class="fas fa-times"></i></a>
-											</td>
-											<%-- <td class="d-flex"> 		
-												<a class="btn btn-outline-primary btn-sm py-2 form-control w-40" href="${base }/infoClass?id=${o.idClass}" role="button" ><i class="fas fa-eye"></i></a>
-												<button class="btn btn-outline-primary btn-sm py-2 form-control w-40" name="delete_btn" onclick="deleteClass(this,${o.idClass});" type="button"><i class="fas fa-trash-alt"></i></button>	
-											</td> --%>
-										</tr>
-									</tbody>
-								</c:forEach>
+								<tbody>
+									<tr>
+										<th scope="row">1</th>
+										<td>Một khóa nào đấy</td>
+										<td>..buổi</td>
+										<td>Tạm chấp nhận được</td>
+										<td class="text-end">
+											<a href="${base }/infoCourse"><i class="fas fa-edit"></i></a> 
+											<a href=""><i class="fas fa-times"></i></a>
+										</td>
+									</tr>
+								</tbody>
 							</table>
 						</div>
-					</div>
-				</div>
 			</main>
 		</div>
 	</div>
