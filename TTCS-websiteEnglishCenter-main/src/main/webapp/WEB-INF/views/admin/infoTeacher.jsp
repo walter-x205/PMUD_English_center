@@ -12,7 +12,7 @@
 	content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 <meta name="description" content="" />
 <meta name="author" content="" />
-<title>Course List</title>
+<title>Teacher Infor</title>
 <jsp:include page="/WEB-INF/views/common/variables.jsp"></jsp:include>
 <jsp:include page="/WEB-INF/views/admin/layouts/css.jsp"></jsp:include>
 </head>
@@ -25,57 +25,130 @@
 	<!--Slidebar-->
 	<div id="layoutSidenav">
 		<!--Slidebar-->
-        <jsp:include page="/WEB-INF/views/admin/layouts/slidebar.jsp"></jsp:include>
-        <!--Slidebar-->
-        
+		<jsp:include page="/WEB-INF/views/admin/layouts/slidebar.jsp"></jsp:include>
+		<!--Slidebar-->
+
 		<!---This is Content-->
 		<div id="layoutSidenav_content">
-			<main>
-				<div class="container-fluid px-4">
-					<div class="row" style="margin-top: 60px;">
-						<div
-							class="mb-2 d-flex justify-content-between align-items-center">
-							<div class="position-relative">
-								<span class="position-absolute search"><i
-									class="fa fa-search"></i></span> <input class="form-control w-100"
-									placeholder="Search by order#, name...">
-							</div>
-							<div class="px-2">
-								<a type="button" class="btn btn-secondary add-button" href="${base }/addNewCourse"><i class="fas fa-plus"></i>Thêm khóa học mới</a> 
-								<i class="fa fa-ellipsis-h ms-3"></i>
+			<form  id="form_addNewStudent" name="form_addNewStudent" action="${base}/admin/teacher/info" method="POST">
+				<div class="row mt-5">
+					<div class="col-xl-5">
+						<div class="card m-l1">
+							<div class="card card-user">
+								<div class="image"></div>
+								<div class="card-body">
+									<div class="author">
+										<a href="#"> <img class="avatar border-gray"
+											src="Img/person-1.png" alt="...">
+										</a>
+									</div>
+									<p class="description text-center">
+										"I am a Adminator <br> I like fish <br>I feel tired
+									</p>
+									<div class="description text-center">
+										<button type="submit" class="btn btn-secondary btn-round">Thay
+											avatar</button>
+									</div>
+								</div>
+								<div class="card-footer">
+									<hr>
+									<div class="button-container">
+										<ul class="list-unstyled">
+											<li class="social-media"><a class="fab fa-facebook"></a>
+												<a class="fab fa-twitter"></a> <a class="fab fa-instagram"></a>
+												<a class="fab fa-linkedin"></a></li>
+										</ul>
+									</div>
+								</div>
 							</div>
 						</div>
-						<div class="table-responsive">
-							<table class="table table-responsive table-borderless">
-								<thead>
-									<tr class="bg-header">
-										<th scope="col" width="5%">ID</th>
-										<th scope="col" width="15%">Tên khóa học</th>
-										<th scope="col" width="15%">Thời lượng</th>
-										<th scope="col" width="45%">Mô tả khóa học</th>
-										<th scope="col" class="text-end" width="10%"><span>Action</span></th>
-									</tr>
-								</thead>
-								<tbody>
-									<tr>
-										<th scope="row">1</th>
-										<td>Một khóa nào đấy</td>
-										<td>..buổi</td>
-										<td>Tạm chấp nhận được</td>
-										<td class="text-end">
-											<a href="${base }/infoCourse"><i class="fas fa-edit"></i></a> 
-											<a href=""><i class="fas fa-times"></i></a>
-										</td>
-									</tr>
-								</tbody>
-							</table>
+					</div>
+	
+					<div class="col-xl-7">
+						<div class="card-tasks card m-r1">
+							<div class="card card-user">
+								<div class="card-header">
+									<h5 class="card-title">Thông tin giảng viên</h5>
+								</div>
+								<div class="card-body">								
+	                                 <div class="row">
+	                                     <div class="col-md-6">
+	                                         <div class="form-group">
+	                                         <br>
+	                                             <input type="text" class="form-control" disabled="" placeholder="Middle Learning" value="Middle Learning">
+	                                         </div>
+	                                     </div>
+	                                     <div class="col-md-6">
+	                                         <div class="form-group">
+	                                             <label>Họ và tên</label>
+	                                             <input type="text" id="fullName" name="fullName" class="form-control" value="${teacher.fullName }" placeholder="Họ và tên">
+	                                         </div>
+	                                     </div>
+	                                 </div>
+	                                 <div class="row">
+	                                     <div class="col-md-6">
+	                                         <div class="form-group">
+	                                             <label>Email</label>
+	                                             <input type="email" id="email" name="email" class="form-control" value="${teacher.email }" placeholder="Email">
+	                                         </div>
+	                                     </div>
+	                                     <div class="col-md-4 ">
+	                                         <div class="form-group">
+	                                             <label>Ngày sinh</label>
+	                                             <input type="date" class="form-control" value="${teacher.birthday }" placeholder="yyyy-mm-dd" name="birthday" id="birthday" autocomplete="off">
+	                                         </div>
+	                                     </div>
+								<div class="col-md-2 ">
+	                                         <div class="form-group">
+	                                             <label>Giới tính</label>
+	                                             <select id="gender" class="form-select">
+											<option value="Nam" ${teacher.gender =="Nam"?"selected":"" }>Nam</option>
+											<option value="Nữ" ${teacher.gender == "Nữ"?"selected":"" }>Nữ</option>
+										</select>
+	                                         </div>
+	                                     </div>
+	                                 </div>
+	
+	                                 <div class="row">
+	                                     <div class="col-md-6">
+	                                         <div class="form-group">
+	                                             <label>Địa chỉ</label>
+	                                             <input type="text" id="address" name="address" class="form-control" value="${teacher.address }">
+	                                         </div>
+	                                     </div>
+								<div class="col-md-6">
+	                                         <div class="form-group">
+	                                             <label>Số điện thoại</label>
+	                                             <br>
+	                                            <input type="number" id="phone" name="phone" class="form-control" value ="${teacher.phone }" placeholder="Phone Number">
+	                                         </div>
+	                                     </div>
+	                                     <div class="row" style="margin-bottom: 10px;">
+	                                         <div class="col-md-12"style="margin-bottom: 20px;">
+	                                             <div class="form-group">
+	                                                 <label>About Me</label>
+	                                                 <textarea class="form-control textarea"></textarea>
+	                                             </div>
+	                                         </div>
+	                                     </div>
+	                                     <div class="row">
+	                                         <div class="update ml-auto mr-auto">
+	                                             <button type="submit" class="btn btn-secondary btn-round">Cập nhật Profile</button>
+	                                         </div>
+	                                     </div>
+									
+									</div>
+								</div>
+							</div>
 						</div>
-			</main>
+					</div>
+				</div>
+			</form>
 		</div>
 	</div>
 	<!--This is Footer-->
-    <jsp:include page="/WEB-INF/views/admin/layouts/footer.jsp"></jsp:include>
-    <jsp:include page="/WEB-INF/views/admin/layouts/js.jsp"></jsp:include>
+	<jsp:include page="/WEB-INF/views/admin/layouts/footer.jsp"></jsp:include>
+	<jsp:include page="/WEB-INF/views/admin/layouts/js.jsp"></jsp:include>
 
 </body>
 

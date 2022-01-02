@@ -46,16 +46,16 @@
 								<i class="fa fa-ellipsis-h ms-3"></i>
 							</div>
 						</div>
-						<div class="table-responsive">
+						<div class="table-responsive table-scroll">
 							<table class="table table-responsive table-borderless">
 								<thead>
 									<tr class="bg-header">
 										<th scope="col" width="5%">ID</th>
-										<th scope="col" width="10%">Tên Lớp</th>
-										<th scope="col" width="10%">Khóa học</th>
+										<th scope="col" width="7%">Tên Lớp</th>
+										<th scope="col" width="15%">Khóa học</th>
 										<th scope="col" width="15%">Ngày bắt đầu</th>
 										<th scope="col" width="10%">Học phí</th>
-										<th scope="col" width="20%">Giảng viên</th>
+										<th scope="col" width="20%">Giảm học phí</th>
 										<th scope="col" width="10%">Trạng thái</th>
 										<th scope="col" class="text-end" width="10%"><span>Action</span></th>
 									</tr>

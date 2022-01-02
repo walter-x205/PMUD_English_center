@@ -62,7 +62,7 @@ public class ManageTeacherController {
 		System.out.println(idTeacher);
 		Teacher teacher = teacherDAO.getInFoTeacherByID(idTeacher);
 		model.addAttribute("teacher",teacher);
-		return "administrator/infoTeacher";
+		return "admin/infoTeacher";
 
 	}
 	@RequestMapping(value = { "/infoTeacher" }, method = RequestMethod.POST)

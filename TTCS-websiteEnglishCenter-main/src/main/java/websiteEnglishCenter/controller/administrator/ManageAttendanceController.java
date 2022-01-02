@@ -128,7 +128,8 @@ public class ManageAttendanceController {
 		} catch (Exception e) {
 			e.getMessage();
 		}
-		return "administrator/attendanceList";
+		return "admin/attendanceList";
+		//return "administrator/attendanceList";
 
 	}
 	@RequestMapping(value = { "/attendanceList" }, method = RequestMethod.POST)
