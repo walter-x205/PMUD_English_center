@@ -71,18 +71,6 @@
 										</tr>
 									</tbody>
 								</c:forEach>
-								<tbody>
-									<tr>
-										<th scope="row">1</th>
-										<td>Một khóa nào đấy</td>
-										<td>..buổi</td>
-										<td>Tạm chấp nhận được</td>
-										<td class="text-end">
-											<a href="${base }/infoCourse"><i class="fas fa-edit"></i></a> 
-											<a href=""><i class="fas fa-times"></i></a>
-										</td>
-									</tr>
-								</tbody>
 							</table>
 						</div>
 			</main>

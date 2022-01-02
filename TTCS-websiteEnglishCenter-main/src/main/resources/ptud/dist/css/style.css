@@ -83,8 +83,7 @@ body {
 
 .table-scroll {
     height: 400px;
-    overflow: scroll;
-    overflow-y: scroll;
+    overflow: auto;
     overflow-x: hidden;
 }
 
@@ -356,7 +355,7 @@ btn {
 }
 
 .form-control {
-    padding-left: 32px
+    padding-left: 15px
 }
 
 .form-control:focus {

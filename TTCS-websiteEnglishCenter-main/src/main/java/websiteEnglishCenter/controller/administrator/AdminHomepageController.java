@@ -72,8 +72,8 @@ public class AdminHomepageController {
 		CourseDAO courseDAO = new CourseDAO();
 		courseList = courseDAO.getAllCourses();
 		model.addAttribute("courseList",courseList);
-		return "administrator/courseList";
-//		return "admin/courseList";
+//		return "administrator/courseList";
+		return "admin/courseList";
 	}
 	@RequestMapping(value = { "/teacherList" }, method = RequestMethod.GET)
 	public String getTeacherList(final Model model, final HttpServletRequest request, final HttpServletResponse response)
