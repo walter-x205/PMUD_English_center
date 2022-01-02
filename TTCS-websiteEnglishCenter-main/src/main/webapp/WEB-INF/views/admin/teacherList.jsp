@@ -45,30 +45,36 @@
                             <table class="table table-responsive table-borderless table-hover">
                                 <thead>
                                     <tr class="bg-header">
-                                        <th scope="col" width="5%">ID</th>
-                                        <th scope="col" width="5%">Avartar</th>
-                                        <th scope="col" width="10%">Họ Tên</th>
+                                        <th scope="col" width="5%">ID</th>                                        
+                                        <th scope="col" width="15%">Họ Tên</th>
+                                        <th scope="col" width="10%">Ngày sinh</th>
                                         <th scope="col" width="8%">Giới tính</th>
                                         <th scope="col" width="15%">Địa chỉ</th>
                                         <th scope="col" width="10%">SĐT</th>
                                         <th scope="col" width="15%">Email</th>
-                                        <th scope="col" width="20%">Mô tả trình độ</th>
+                                        <th scope="col" width="15%">Mô tả trình độ</th>
                                         <th scope="col" class="text-end" width="10%"><span>Action</span></th>
                                     </tr>
                                 </thead>
-                                <tbody>
-                                    <tr>
-                                        <th scope="row">1</th>
-                                        <td><img src="" alt="">Img </td>
-                                        <td>Chu Ngọc Thủy</td>
-                                        <td>Nam</td>
-                                        <td>Việt Nam</td>
-                                        <td>0.12312312</td>
-                                        <td>thuychu@...</td>
-                                        <td>provip</td>
-                                        <td class="text-end"><a href="${base }/infoTeacher"><i class="fas fa-edit"></i></a> <a href=""><i class="fas fa-times"></i></a></td>
-                                    </tr>
-                                </tbody>
+                                <c:forEach items="${teacherList }" var="o">
+									<tbody>
+										<tr>
+											<th scope="row">${o.teacherID }</th>
+		<%-- 									<td><img src="dist/img/${o.photo }" class="img-circle " alt="User Image"></td> --%>
+											<td>${o.fullName }</td>
+											<td>${o.birthday }</td>
+											<td>${o.gender }</td>
+											<td>${o.address }</td>
+											<td>${o.phone }</td>
+											<td>${o.email }</td>
+											<td>${o.qualification }</td>
+											<td class="text-end">
+												<a href="${base }/infoTeacher?id=${o.teacherID }"><i class="fas fa-edit"></i></a>
+												<a name="delete_btn" onclick="deleteTeacherToTeacherList(this,${o.teacherID});" role="button"><i class="fas fa-times"></i></a>
+											</td>						
+										</tr>
+									</tbody>
+								</c:forEach>
                             </table>
                         </div>
                     </div>

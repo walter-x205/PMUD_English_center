@@ -51,8 +51,8 @@ public class AdminHomepageController {
 		model.addAttribute("teacherList",teacherList);
 		List<Course> courseList = course.getAllCourses();
 		model.addAttribute("courseList",courseList);
-		return "administrator/classList";
-//		return "admin/classList"; đừng xoá dòng này nhé
+//		return "administrator/classList";
+		return "admin/classList";
 	}
 	
 	
@@ -82,6 +82,7 @@ public class AdminHomepageController {
 		TeacherDAO teacherDAO = new TeacherDAO();
 		teacherList = teacherDAO.getAllTeachers();
 		model.addAttribute("teacherList",teacherList);
+		model.addAttribute("titleForm", "Danh sách giảng viên");
 		return "admin/teacherList";
 //		return "administrator/teacherList";
 	}

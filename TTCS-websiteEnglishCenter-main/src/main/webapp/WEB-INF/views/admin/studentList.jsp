@@ -50,27 +50,37 @@
 								<thead>
 									<tr class="bg-header">
 										<th scope="col" width="5%">ID</th>
-										<th scope="col" width="10%">Họ Tên</th>
+										<th scope="col" width="15%">Họ Tên</th>
 										<th scope="col" width="12%">Ngày sinh</th>
+										<th scope="col" width="12%">Địa chỉ</th>
 										<th scope="col" width="10%">Giới tính</th>
 										<th scope="col" width="15%">SĐT</th>
 										<th scope="col" width="15%">Email</th>
 										<th scope="col" class="text-end" width="10%"><span>Action</span></th>
 									</tr>
 								</thead>
-								<tbody>
-									<tr>
-										<th scope="row">1</th>
-										<td>Tạ Tuệ</td>
-										<td>12/22/22</td>
-										<td>Undifined</td>
-										<td>0.12312312</td>
-										<td>tatue@...</td>
-										<td class="text-end"><a href="${base }/infoStudent"><i
-												class="fas fa-edit"></i></a> <a href=""><i
-												class="fas fa-times"></i></a></td>
-									</tr>
-								</tbody>
+								<c:forEach items="${studentList }" var="o">
+									<tbody>
+										<tr>
+											<th scope="row">${o.idStudent }</th>
+											<td>${o.fullName }</td>
+											<td>${o.birthday }</td>
+											<td>${o.gender }</td>
+											<td>${o.address }</td>
+											<td>${o.phone }</td>
+											<td>${o.email }</td>
+											<td class="text-end">
+												<a href="${base }/infoStudent?id=${o.idStudent }"><i class="fas fa-edit"></i></a> 
+												<a name="delete_btn" onclick="deleteStudentToStudentList(this,${o.idStudent});" role="button"><i class="fas fa-times"></i></a>
+											</td>
+											<%-- <td class="d-flex">
+												<a class="btn btn-outline-primary btn-sm py-2 form-control w-40" href="${base }/infoStudent?id=${o.idStudent }"><i class="fas fa-edit"></i></a> 
+												<button class="btn btn-outline-primary btn-sm py-2 form-control w-40" name="delete_btn" onclick="deleteStudentToStudentList(this,${o.idStudent});" type="button"><i class="fas fa-trash-alt"></i></button>
+											</td> --%>
+										</tr>
+									</tbody>
+								</c:forEach>
+								
 							</table>
 						</div>
 			</main>

@@ -68,7 +68,7 @@ public class ManageStudentController {
 		System.out.println(idStudent);
 		Student st = stDAO.getInFoStudentByID(idStudent);
 		model.addAttribute("st",st);
-		return "administrator/infoStudent";
+		return "admin/infoStudent";
 
 	}
 	@RequestMapping(value = { "/infoStudent" }, method = RequestMethod.POST)

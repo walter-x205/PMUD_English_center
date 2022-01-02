@@ -4,7 +4,7 @@
      <!-- Navbar Brand-->
      <a class="navbar-brand ps-3 simple-text mx-3" href="test.html"><img src="assets/logo/logo.svg" style="width: 40px; height: 40px"> Middle <sup></sup>
      </a>
-     <a href="test.html" class="mr-3 navbar-brand" style="margin-top: -5px; margin-left: -30px;"> Teacher List</a>
+     <a href="test.html" class="mr-3 navbar-brand" style="margin-top: -5px; margin-left: -30px;">${titleForm }</a>
      <li class="nav-item dropdown mr-1 mb-4">
          <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false"><i class="far fa-bell i"></i>
   

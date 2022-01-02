@@ -38,48 +38,47 @@
 							<h3>Nhập thông tin giảng viên</h3>
 						</div>
 						<div class="card-body">
-							<form class="row g-3">
+							<form class="row g-3" id="form_addNewStudent" name="form_addNewStudent" action="${base}/addNewStudent" method="POST">
 								<div class="col-md-6">
 									<label for="inputEmail4" class="form-label fs-5">Họ và
-										tên</label> <input type="email" class="form-control" id="inputEmail4">
+										tên</label> <input type="text" id="fullName" name="fullName" class="form-control">
 								</div>
 								<div class="col-md-6">
 									<label for="inputPassword4" class="form-label fs-5">Ngày
 										sinh</label> <input type="date" class="form-control"
-										id="inputPassword4">
+										placeholder="yyyy-mm-dd" name="birthday" id="birthday" autocomplete="off">
 								</div>
-								<div class="col-12">
+								<div class="col-6">
+									<label for="inputAddress" class="form-label fs-5">Email</label>
+									<input type="email" class="form-control" id="email" name="email">
+								</div>
+								<div class="col-6">
 									<label for="inputAddress" class="form-label fs-5">Số
 										điện thoại</label> <input type="number" class="form-control"
-										id="inputAddress">
+										id="phone" name="phone">
 								</div>
 								<div class="col-md-8">
 									<label for="inputAddress2" class="form-label fs-5">Địa
-										chỉ</label> <input type="text" class="form-control" id="inputAddress2">
+										chỉ</label> <input type="text" class="form-control" id="address" name="address">
 								</div>
 								<div class="col-md-4">
-									<label for="inputState" class="form-label fs-5">Giới
-										tính</label> <select id="inputState" class="form-select">
-										<option selected>Nam</option>
-										<option>Nữ</option>
+									<label for="inputState" class="form-label fs-5">Giới tính</label>
+									
+									<select id="gender" class="form-select">
+										<option selected  value="Nam">Nam</option>
+										<option value="Nữ">Nữ</option>
 									</select>
 								</div>
 								<div class="col-12">
 									<label for="floatingTextarea2" class="mb-2 fs-5">Trình
 										độ chuyên môn</label>
-									<textarea class="form-control" id="floatingTextarea2"
+									<textarea class="form-control" id="qualification" name="qualification"
 										style="height: 100px"></textarea>
 								</div>
+							
 								<div class="col-12">
-									<div class="form-check">
-										<input class="form-check-input" type="checkbox" id="gridCheck">
-										<label class="form-check-label" for="gridCheck"> Check
-											me out </label>
-									</div>
-								</div>
-								<div class="col-12">
-									<button type="submit" class=" btn btn-add btn-secondary">Thêm
-										giảng viên</button>
+									<a class=" btn btn-add btn-secondary" onclick="addNewTeacher();" role="button" >Thêm giảng viên</a>
+									
 								</div>
 							</form>
 						</div>

@@ -28,6 +28,7 @@ public class ManageTeacherController {
 			throws IOException {
 		Teacher teacher =new Teacher();
 		model.addAttribute("teacher",teacher);
+		model.addAttribute("titleForm", "Danh sách giảng viên");
 		return "admin/addNewTeacher";
 
 	}
