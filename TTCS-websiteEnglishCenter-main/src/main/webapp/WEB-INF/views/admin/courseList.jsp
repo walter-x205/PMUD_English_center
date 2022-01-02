@@ -56,6 +56,21 @@
 										<th scope="col" class="text-end" width="10%"><span>Action</span></th>
 									</tr>
 								</thead>
+								<c:forEach items="${courseList }" var="o">
+									<tbody>
+										<tr>
+											<th scope="row">${o.courseID }</th>
+											<td>${o.courseName }</td>
+											<td>${o.totalLesson } buổi</td>
+											<td><div id="detailDescription">${o.description }</div></td>
+											<td class="d-flex">
+												<a href="${base }/infoCourse?id=${o.courseID }"><i class="fas fa-edit"></i></a> 
+												<a name="delete_btn" onclick="deleteCourseToCourseList(this,${o.courseID});" role="button"><i class="fas fa-times"></i></a>
+												<%-- <a class="btn btn-outline-primary btn-sm py-2 form-control w-40" href="${base }/infoCourse?id=${o.courseID }"><i class="fas fa-edit"></i></a> 
+												<button class="btn btn-outline-primary btn-sm py-2 form-control w-40" name="delete_btn" onclick="deleteCourseToCourseList(this,${o.courseID});" type="button"><i class="fas fa-trash-alt"></i></button> --%>
+										</tr>
+									</tbody>
+								</c:forEach>
 								<tbody>
 									<tr>
 										<th scope="row">1</th>
