@@ -6,6 +6,7 @@ public class Course {
 	private String description;
 	private int totalLesson;
 	private int parentId;
+	private boolean status;
 	public int getCourseID() {
 		return courseID;
 	}
@@ -42,6 +43,19 @@ public class Course {
 	public void setParentId(int parentId) {
 		this.parentId = parentId;
 	}
+	
+	/**
+	 * @return the status
+	 */
+	public boolean isStatus() {
+		return status;
+	}
+	/**
+	 * @param status the status to set
+	 */
+	public void setStatus(boolean status) {
+		this.status = status;
+	}
 	public Course(int courseID, String courseName, String description) {
 		super();
 		this.courseID = courseID;
@@ -63,10 +77,19 @@ public class Course {
 		this.totalLesson = totalLesson;
 		this.parentId = parentId;
 	}
+	public Course(int courseID, String courseName, String description, int totalLesson, int parentId, boolean status) {
+		super();
+		this.courseID = courseID;
+		this.courseName = courseName;
+		this.description = description;
+		this.totalLesson = totalLesson;
+		this.parentId = parentId;
+		this.status = status;
+	}
 	@Override
 	public String toString() {
 		return "Course [courseID=" + courseID + ", courseName=" + courseName + ", description=" + description
-				+ ", totalLesson=" + totalLesson + "]";
+				+ ", totalLesson=" + totalLesson + ", parentId=" + parentId + ", status=" + status + "]";
 	}
 	
 	

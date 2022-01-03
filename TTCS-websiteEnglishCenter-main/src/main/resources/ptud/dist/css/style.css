@@ -81,8 +81,14 @@ body {
     }
 }
 
+div.sticky {
+    position: -webkit-sticky;
+    position: sticky;
+    height: 200px;
+}
+
 .table-scroll {
-    height: 400px;
+    height: 480px;
     overflow: auto;
     overflow-x: hidden;
 }
@@ -708,7 +714,7 @@ p.description {
 .table-title {
     text-align: center;
     margin-top: 10px;
-    margin-bottom: 10px;
+    /* margin-bottom: 10px; */
 }
 
 .m-l5 {
@@ -774,4 +780,13 @@ p.description {
 
 .header-profile .dropdown-item {
     padding: 5px 24px;
+}
+
+
+/* Fix scroll */
+
+.scroll-clean {
+    overflow: auto;
+    height: 300px;
+    overflow-x: hidden;
 }

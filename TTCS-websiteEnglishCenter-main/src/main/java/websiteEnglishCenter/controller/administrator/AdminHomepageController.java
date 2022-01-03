@@ -45,7 +45,7 @@ public class AdminHomepageController {
 		ClassDAO classDAO = new ClassDAO();
 		TeacherDAO teacherDAO = new TeacherDAO();
 		CourseDAO course = new CourseDAO();
-		List<GeneralClass> cList = classDAO.getAllClass();
+		List<GeneralClass> cList = classDAO.getAllClassOrderById();
 		model.addAttribute("cList",cList);
 		List<Teacher> teacherList = teacherDAO.getAllTeachers();
 		model.addAttribute("teacherList",teacherList);

@@ -12,7 +12,7 @@
 	content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 <meta name="description" content="" />
 <meta name="author" content="" />
-<title>Class Edit</title>
+<title>Add New Class</title>
 <jsp:include page="/WEB-INF/views/common/variables.jsp"></jsp:include>
 <jsp:include page="/WEB-INF/views/admin/layouts/css.jsp"></jsp:include>
 </head>
@@ -37,43 +37,48 @@
                             <h3 class="fs-2">Tạo lớp học mới</h3>
                         </div>
                         <div class="card-body">
-                            <form class="row g-3">
+                            <form class="row g-3" id="form_createClass" name="form_createClass" action="${base }/addNewClass" method="POST">
                                 <div class="col-md-6">
                                     <label for="inputEmail4" class="form-label fs-5">Tên lớp học</label>
-                                    <input type="email" class="form-control" id="inputEmail4">
+                                    <input type="text" id="className" name="className" class="form-control">
                                 </div>
                                 <div class="col-md-6">
-                                    <label for="inputPassword4" class="form-label fs-5">Khóa học</label>
-                                    <select class="form-select" id="floatingSelectGrid" aria-label="Floating label select example">
-						<option selected>Tiếng anh cơ bản</option>
-						<option>Tiếng anh nâng cao</option>
-					  </select>
+                                    <label for="courseName" class="form-label fs-5">Khóa học</label>
+                                    <select class="form-select" name="courseName" id="courseID" aria-label="Floating label select example">
+										<c:forEach items="${courseList }" var="o">
+											<option value="${o.courseID }">${o.courseName }</option>
+										</c:forEach>
+									  </select>
                                 </div>
                                 <div class="col-md-6">
                                     <label for="inputAddress" class="form-label fs-5">Học phí</label>
-                                    <input type="number" class="form-control" id="inputAddress">
+                                    <input type="text" id="tuitionFees" name="tuitionFees" class="form-control">
                                 </div>
                                 <div class="col-md-6">
                                     <label for="inputAddress2" class="form-label fs-5">Giảm học phí</label>
-                                    <input type="text" class="form-control" id="inputAddress2">
+                                    <input type="text" id="tuitionFeeSales" name="tuitionFeeSales" class="form-control">
                                 </div>
                                 <div class="col-md-6">
                                     <label for="inputAddress" class="form-label fs-5">Ngày bắt đầu</label>
-                                    <input type="date" class="form-control" id="inputAddress">
+                                    <input type="date" class="form-control" name="startDate" id="startDate" autocomplete="off">
                                 </div>
                                 <div class="col-md-6">
-                                    <label for="inputAddress2" class="form-label fs-5">Giảng viên phụ trách</label>
-                                    <input type="text" class="form-control" id="inputAddress2">
+                                    <label for="teacher" class="form-label fs-5">Giảng viên phụ trách</label>
+                                    <select class="form-select" name="teacher" id="teacher" aria-label="Floating label select example">
+										<c:forEach items="${teacherList }" var="o">
+											<option value="${o.teacherID }" >${o.fullName }</option>
+										</c:forEach>
+									 </select>
+                                  
                                 </div>
                                 <br>
                                 <div class="col-12">
-                                    <button type="submit" class=" btn btn-add btn-secondary">Tạo lớp học</button>
+                                    <a class=" btn btn-add btn-secondary"onclick="createClass();" role="button">Tạo lớp học</a>
                                 </div>
                             </form>
                         </div>
                     </div>
-
-                </main>
+                </div>
             </div>
         </div>
     </div>

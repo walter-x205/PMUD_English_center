@@ -18,10 +18,11 @@ public class CourseDAO {
 	
 	public List<Course> getAllCourses() {
 		List<Course> courseList = new ArrayList<>();
-		String query = "SELECT * FROM englishcenter.course;";
+		String query = "SELECT * FROM englishcenter.course where status =?;";
 		try {
 			connection = new ConnectDatabase().getConnection();
 			ps = connection.prepareStatement(query);
+			ps.setInt(1, 1);
 			rs = ps.executeQuery();
 			while (rs.next()) {
 				courseList.add(new Course(rs.getInt(1), rs.getString(2), rs.getString(3),rs.getInt(4),rs.getInt(5)));
@@ -31,22 +32,23 @@ public class CourseDAO {
 		}
 		return courseList;
 	}
-	public List<Course> getAllCoursesByParentId(int parentId) {
-		List<Course> courseList = new ArrayList<>();
-		String query = "SELECT * FROM englishcenter.course where parent_id!=idcourse and parent_id=? ;";
-		try {
-			connection = new ConnectDatabase().getConnection();
-			ps = connection.prepareStatement(query);
-			ps.setInt(1, parentId);
-			rs = ps.executeQuery();
-			while (rs.next()) {
-				courseList.add(new Course(rs.getInt(1), rs.getString(2), rs.getString(3),rs.getInt(4),rs.getInt(5)));
-			}
-		} catch (Exception e) {
-			// TODO: handle exception
-		}
-		return courseList;
-	}
+//	public List<Course> getAllCoursesByParentId(int parentId) {
+//		List<Course> courseList = new ArrayList<>();
+//		String query = "SELECT * FROM englishcenter.course where parent_id!=idcourse and parent_id=? and status =?;";
+//		try {
+//			connection = new ConnectDatabase().getConnection();
+//			ps = connection.prepareStatement(query);
+//			ps.setInt(1, parentId);
+//			ps.setInt(2, 1);
+//			rs = ps.executeQuery();
+//			while (rs.next()) {
+//				courseList.add(new Course(rs.getInt(1), rs.getString(2), rs.getString(3),rs.getInt(4),rs.getInt(5)));
+//			}
+//		} catch (Exception e) {
+//			// TODO: handle exception
+//		}
+//		return courseList;
+//	}
 	public void insertNewCourse(String courseName,String description,int totalLesson) {
 		String query = "INSERT INTO `englishcenter`.`course` (`courseName`, `description`,`totallesson`) VALUES ( ?, ?, ?);";
 		try {
@@ -61,11 +63,12 @@ public class CourseDAO {
 		}
 	}
 	public Course getInFoCourseByID(int idCourse) {
-		String query = "SELECT * FROM englishcenter.course WHERE course.idcourse=?;";
+		String query = "SELECT * FROM englishcenter.course WHERE course.idcourse=? and status =?;";
 		try {
 			connection = new ConnectDatabase().getConnection();
 			ps = connection.prepareStatement(query);
 			ps.setInt(1, idCourse);
+			ps.setInt(2, 1);
 			rs = ps.executeQuery();
 			while (rs.next()) {
 				Course course = new Course(rs.getInt(1), rs.getString(2), rs.getString(3),rs.getInt(4),rs.getInt(5));
@@ -92,11 +95,12 @@ public class CourseDAO {
 		}
 	}
 	public void deleteCourseByID(int idCourse) {
-		String query = "DELETE FROM englishcenter.course WHERE course.idcourse=?;";
+		String query = "UPDATE `englishcenter`.`course` SET `status` = ? WHERE (`idcourse` = ?);";
 		try {
 			connection = new ConnectDatabase().getConnection();
 			ps = connection.prepareStatement(query);
-			ps.setInt(1, idCourse);
+			ps.setBoolean(1, false);
+			ps.setInt(2, idCourse);
 			ps.executeUpdate();
 		} catch (Exception e) {
 			e.getStackTrace();

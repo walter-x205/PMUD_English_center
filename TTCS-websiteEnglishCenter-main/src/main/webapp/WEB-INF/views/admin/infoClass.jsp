@@ -33,7 +33,7 @@
 			<div class="row mt-5" style="margin-left: 10px;">
 				<div class="col-xl-6">
 					<div class="card-tasks card m-r1">
-						<div class="card card-user">
+						<div class="card card-user" style="list-style:none; border: none; height: 300px;">
 							<div class="card-header">
 								<h5 class="card-title fs-4 fw-bold">Thông tin lớp học</h5>
 							</div>
@@ -91,7 +91,7 @@
 										</div>
 									</div>
 									<div class="row" style="margin-bottom: 20px;">
-										<div class="col-md-12">
+										<div class="col-md-6">
 											<div class="form-group">
 												<label>Giảng viên phụ trách</label>
 												<select name="teacherName" class="form-control" id="teacherName">
@@ -99,6 +99,15 @@
 														<option ${infoClass.idTeacher == o.teacherID?"selected":""} >${o.fullName }</option>
 													</c:forEach>
 												</select>
+											</div>
+										</div>
+										<div class="col-md-6">
+											<div class="form-group">
+												<br>
+												<div class="text-center">
+													<button name="saveinfo_btn"  onclick="saveInfoClass(${infoClass.idClass});" type="button" class="btn btn-outline-secondary btn-round">Lưu
+														thông tin</button>
+												</div>
 											</div>
 										</div>
 									</div>
@@ -125,15 +134,6 @@
 										<option >${o.weeksday }</option>
 									</c:forEach>												
 								</select>
-								<!-- <select class="form-select">
-									<option selected>Thứ 2</option>
-									<option value="1">Thứ 3</option>
-									<option value="2">Thứ 4</option>
-									<option value="3">Thứ 5</option>
-									<option value="4">Thứ 6</option>
-									<option value="5">Thứ 7</option>
-									<option value="6">Chủ nhật</option>
-								</select> -->
 							</div>
 						</div>
 						<div class="col-md-3">
@@ -143,24 +143,17 @@
 									<c:forEach items="${clrList }" var="o">
 										<option >${o.classroomName }</option>
 									</c:forEach>
-								</select>
-								<!-- <select class="form-select">
-									<option selected>Phòng 1</option>
-									<option value="1">Phòng 2</option>
-									<option value="2">Phòng 3</option>
-									<option value="3">Phòng 4</option>
-								</select> -->
+								</select>								
 							</div>
 						</div>
 						<div class="col-md-3">
 							<br>
-							<button type="submit" class="btn btn-secondary btn-round">Thêm
+							<button type="submit" class="btn btn-secondary btn-round" onclick="addNewSchedule(${infoClass.idClass},${maxScheduleID});">Thêm
 								Lịch</button>
 						</div>
 					</div>
-					<div class="table-responsive"
-						style="overflow: scroll; height: 320px;">
-						<table class="table table-responsive table-borderless">
+					<div class="table-responsive scroll-clean">
+						<table class="table table-responsive table-borderless" id="scheduleTable">
 							<thead>
 								<tr class="bg-header">
 									<th scope="col" width="30%">Thời gian</th>
@@ -196,7 +189,7 @@
 						</table>
 					</div>
 				</div>
-				<div class="col-xl-12">
+				<div class="col-xl-12" style="position: relative;margin-top: -40px;">
 					<div class="table-title fs-3">
 						Danh sách lớp
 						<div class="text-right">
@@ -258,10 +251,7 @@
 								</tr> -->
 							</tbody>
 						</table>
-						<div class="text-center">
-							<button type="submit" class="btn btn-outline-secondary btn-round">Lưu
-								thông tin</button>
-						</div>
+						
 					</div>
 				</div>
 			</div>

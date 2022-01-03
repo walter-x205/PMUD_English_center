@@ -25,9 +25,8 @@
 	<!--Slidebar-->
 	<div id="layoutSidenav">
 		<!--Slidebar-->
-        <jsp:include page="/WEB-INF/views/admin/layouts/slidebar.jsp"></jsp:include>
-        <!--Slidebar-->
-        
+		<jsp:include page="/WEB-INF/views/admin/layouts/slidebar.jsp"></jsp:include>
+		<!--Slidebar-->
 		<!---This is Content-->
 		<div id="layoutSidenav_content">
 			<main>
@@ -41,8 +40,9 @@
 									placeholder="Search by order#, name...">
 							</div>
 							<div class="px-2">
-								<a type="button" class="btn btn-secondary add-button" href="${base }/addNewCourse"><i class="fas fa-plus"></i>Thêm khóa học mới</a> 
-								<i class="fa fa-ellipsis-h ms-3"></i>
+								<a type="button" class="btn btn-secondary add-button"
+								href="${base }/addNewCourse"><i class="fas fa-plus"></i>Thêm
+								khóa học mới</a> <i class="fa fa-ellipsis-h ms-3"></i>
 							</div>
 						</div>
 						<div class="table-responsive table-scroll">
@@ -50,24 +50,29 @@
 								<thead>
 									<tr class="bg-header">
 										<th scope="col" width="5%">ID</th>
-										<th scope="col" width="15%">Tên khóa học</th>
+										<th scope="col" width="20%">Tên khóa học</th>
 										<th scope="col" width="15%">Thời lượng</th>
-										<th scope="col" width="45%">Mô tả khóa học</th>
+										<th scope="col" width="50%">Mô tả khóa học</th>
 										<th scope="col" class="text-end" width="10%"><span>Action</span></th>
 									</tr>
 								</thead>
+								
 								<c:forEach items="${courseList }" var="o">
 									<tbody>
 										<tr>
 											<th scope="row">${o.courseID }</th>
 											<td>${o.courseName }</td>
 											<td>${o.totalLesson } buổi</td>
-											<td><div id="detailDescription">${o.description }</div></td>
-											<td class="d-flex">
-												<a href="${base }/infoCourse?id=${o.courseID }"><i class="fas fa-edit"></i></a> 
-												<a name="delete_btn" onclick="deleteCourseToCourseList(this,${o.courseID});" role="button"><i class="fas fa-times"></i></a>
-												<%-- <a class="btn btn-outline-primary btn-sm py-2 form-control w-40" href="${base }/infoCourse?id=${o.courseID }"><i class="fas fa-edit"></i></a> 
-												<button class="btn btn-outline-primary btn-sm py-2 form-control w-40" name="delete_btn" onclick="deleteCourseToCourseList(this,${o.courseID});" type="button"><i class="fas fa-trash-alt"></i></button> --%>
+	
+											<!--Edit truncate-->
+											<td>
+												<div class="text-truncate">${o.description }</div>
+											</td>
+											<!--End truncate-->
+	
+											<td class="text-end">
+												<a href="${base }/infoCourse?id=${o.courseID }"><i class="fas fa-edit"></i></a>
+												<a href="deleteCourseToCourseList(this,${o.courseID});"><i class="fas fa-times"></i></a></td>
 										</tr>
 									</tbody>
 								</c:forEach>
@@ -76,9 +81,10 @@
 			</main>
 		</div>
 	</div>
+	
 	<!--This is Footer-->
-    <jsp:include page="/WEB-INF/views/admin/layouts/footer.jsp"></jsp:include>
-    <jsp:include page="/WEB-INF/views/admin/layouts/js.jsp"></jsp:include>
+	<jsp:include page="/WEB-INF/views/admin/layouts/footer.jsp"></jsp:include>
+	<jsp:include page="/WEB-INF/views/admin/layouts/js.jsp"></jsp:include>
 
 </body>
 

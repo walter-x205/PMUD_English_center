@@ -26,7 +26,7 @@ public class ManageCourseController {
 			throws IOException {
 		Course course =new Course();
 		model.addAttribute("course",course);
-		return "administrator/addNewCourse";
+		return "admin/addNewCourse";
 
 	}
 	@RequestMapping(value = { "/addNewCourse" }, method = RequestMethod.POST)
@@ -34,7 +34,7 @@ public class ManageCourseController {
 			,final HttpServletRequest request
 			,final HttpServletResponse response
 			,final @RequestBody Course course){
-//		System.out.println(course.getCourseName()+" "+course.getDescription());
+		System.out.println(course.getCourseName()+" "+course.getDescription());
 		CourseDAO courseDAO = new CourseDAO();
 		courseDAO.insertNewCourse(course.getCourseName(), course.getDescription(),course.getTotalLesson());
 		Map<String, Object> jsonResult = new HashMap<String, Object>();
@@ -51,7 +51,7 @@ public class ManageCourseController {
 		int idCourse = Integer.parseInt(request.getParameter("id"));
 		Course course = courseDAO.getInFoCourseByID(idCourse);
 		model.addAttribute("course",course);
-		return "administrator/infoCourse";
+		return "admin/infoCourse";
 
 	}
 	@RequestMapping(value = { "/infoCourse" }, method = RequestMethod.POST)
