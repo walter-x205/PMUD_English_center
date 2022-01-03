@@ -73,7 +73,7 @@
                                 </div>
                                 <br>
                                 <div class="col-12">
-                                    <a class=" btn btn-add btn-secondary"  href="${base }/infoNewClass" onclick="createClass();" role="button">Tạo lớp học</a>
+                                    <a class=" btn btn-add btn-secondary"onclick="createClass();" role="button">Tạo lớp học</a>
                                 </div>
                             </form>
                         </div>

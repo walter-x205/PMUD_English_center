@@ -33,7 +33,7 @@
 			<div class="row mt-5" style="margin-left: 10px;">
 				<div class="col-xl-6">
 					<div class="card-tasks card m-r1">
-						<div class="card card-user">
+						<div class="card card-user" style="list-style:none; border: none; height: 300px;">
 							<div class="card-header">
 								<h5 class="card-title fs-4 fw-bold">Thông tin lớp học</h5>
 							</div>
@@ -91,7 +91,7 @@
 										</div>
 									</div>
 									<div class="row" style="margin-bottom: 20px;">
-										<div class="col-md-12">
+										<div class="col-md-6">
 											<div class="form-group">
 												<label>Giảng viên phụ trách</label>
 												<select name="teacherName" class="form-control" id="teacherName">
@@ -99,6 +99,15 @@
 														<option ${infoClass.idTeacher == o.teacherID?"selected":""} >${o.fullName }</option>
 													</c:forEach>
 												</select>
+											</div>
+										</div>
+										<div class="col-md-6">
+											<div class="form-group">
+												<br>
+												<div class="text-center">
+													<button name="saveinfo_btn"  onclick="saveInfoClass(${infoClass.idClass});" type="button" class="btn btn-outline-secondary btn-round">Lưu
+														thông tin</button>
+												</div>
 											</div>
 										</div>
 									</div>
@@ -139,14 +148,11 @@
 						</div>
 						<div class="col-md-3">
 							<br>
-							<%-- <a class="btn btn-success btn-sm py-2 form-control"  href="${base }/infoClass?id=${infoClass.idClass}" onclick="addSchedule(${infoClass.idClass},${maxScheduleID})" role="button" >
-									<i class="far fa-calendar-plus"></i> Thêm lịch</a> --%>
 							<button type="submit" class="btn btn-secondary btn-round" onclick="addNewSchedule(${infoClass.idClass},${maxScheduleID});">Thêm
 								Lịch</button>
 						</div>
 					</div>
-					<div class="table-responsive"
-						style="overflow: scroll; height: 320px;">
+					<div class="table-responsive scroll-clean">
 						<table class="table table-responsive table-borderless" id="scheduleTable">
 							<thead>
 								<tr class="bg-header">
@@ -183,7 +189,7 @@
 						</table>
 					</div>
 				</div>
-				<div class="col-xl-12">
+				<div class="col-xl-12" style="position: relative;margin-top: -40px;">
 					<div class="table-title fs-3">
 						Danh sách lớp
 						<div class="text-right">
@@ -245,10 +251,7 @@
 								</tr> -->
 							</tbody>
 						</table>
-						<div class="text-center">
-							<button type="submit" class="btn btn-outline-secondary btn-round">Lưu
-								thông tin</button>
-						</div>
+						
 					</div>
 				</div>
 			</div>

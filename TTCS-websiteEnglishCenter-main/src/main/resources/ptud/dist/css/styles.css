@@ -7399,9 +7399,12 @@ fieldset:disabled .btn {
 }
 
 .text-truncate {
-    overflow: hidden;
+	width:100%;
+  	overflow: hidden;
     text-overflow: ellipsis;
-    white-space: nowrap;
+	-webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+     display: -webkit-box;
 }
 
 .vr {

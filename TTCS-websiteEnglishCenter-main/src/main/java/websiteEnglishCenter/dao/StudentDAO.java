@@ -26,7 +26,7 @@ public class StudentDAO {
 	
 	public List<Student> getAllStudents() {
 		List<Student> studentList = new ArrayList<>();
-		String query = "SELECT * FROM englishcenter.student;";
+		String query = "SELECT * FROM englishcenter.student ORDER BY idstudent DESC;";
 		try {
 			connection = new ConnectDatabase().getConnection();
 			ps = connection.prepareStatement(query);

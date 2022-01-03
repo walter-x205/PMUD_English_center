@@ -27,7 +27,7 @@
 		<!--Slidebar-->
 		<jsp:include page="/WEB-INF/views/admin/layouts/slidebar.jsp"></jsp:include>
 		<!--Slidebar-->
-
+		
 		 <!---This is Content-->
          <div id="layoutSidenav_content">
              <div class="container-fluid px-4">
@@ -51,7 +51,7 @@
 									<div class="form-floating overflow-auto">
 <!-- 										<label for="courseName" class="form-label fs-5">Tên khóa học mới</label> -->
 										<textarea class="form-control" placeholder="Leave a comment here" id="description" name="description" style="height: 350px">${course.description }</textarea>
-										<label for="Detail">Mô tả khóa học</label>
+										<!-- <label for="Detail">Mô tả khóa học</label> -->
 									  </div>
                                  </div>
 								<a class="btn btn-secondary" onclick="updateInfoCourse(${course.courseID} );" role="button"> Lưu thông tin</a>

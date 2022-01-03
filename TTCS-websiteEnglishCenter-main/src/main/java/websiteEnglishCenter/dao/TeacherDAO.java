@@ -18,7 +18,7 @@ public class TeacherDAO {
 	
 	public List<Teacher> getAllTeachers() {
 		List<Teacher> teacherList = new ArrayList<>();
-		String query = "SELECT * FROM englishcenter.teacher;";
+		String query = "SELECT * FROM englishcenter.teacher ORDER BY idteacher DESC;";
 		try {
 			connection = new ConnectDatabase().getConnection();
 			ps = connection.prepareStatement(query);

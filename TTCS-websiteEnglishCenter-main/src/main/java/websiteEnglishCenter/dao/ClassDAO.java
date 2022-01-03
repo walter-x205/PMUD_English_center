@@ -17,6 +17,21 @@ public class ClassDAO {
 	Connection connection = null;
 	PreparedStatement ps = null;
 	ResultSet rs = null;
+	public List<GeneralClass> getAllClassOrderById() {
+		List<GeneralClass> cList = new ArrayList<GeneralClass>();
+		String query = "SELECT * FROM englishcenter.class ORDER BY idclass DESC;";
+		try {
+			connection = new ConnectDatabase().getConnection();
+			ps = connection.prepareStatement(query);
+			rs = ps.executeQuery();
+			while (rs.next()) {
+				cList.add(new GeneralClass(rs.getInt(1), rs.getString(2), rs.getDate(3), rs.getInt(4), rs.getInt(5), rs.getInt(6), rs.getInt(7),rs.getInt(8)));
+			}
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		return cList;
+	}
 	public List<GeneralClass> getAllClass() {
 		List<GeneralClass> cList = new ArrayList<GeneralClass>();
 		String query = "SELECT * FROM englishcenter.class;";

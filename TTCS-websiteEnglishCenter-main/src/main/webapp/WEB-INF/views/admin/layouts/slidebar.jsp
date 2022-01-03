@@ -96,11 +96,11 @@
 							khoản Học Viên</a>
 					</nav>
 				</div>
-				<a class="nav-link" href="Collect-tutionfee.html">
+				<a class="nav-link" href="${base }/collectTuitionFee">
 					<div class="sb-nav-link-icon">
 						<i class="fas fa-money-check-alt"></i>
 					</div> Quản lý Học Phí
-				</a> <a class="nav-link" href="payroll.html">
+				</a> <a class="nav-link" href="${base }/payroll">
 					<div class="sb-nav-link-icon">
 						<i class="fas fa-money-bill-alt"></i>
 					</div> Quản lý Lương

@@ -68,7 +68,7 @@
 										</div>
 									</div>
 									<div class="col-xl-3">
-										<label class="form-label">Giảng viên</label>
+										<label class="form-label">Thực hiện</label>
 										 <select class="form-select" name="teaccherName" id="teaccherName">
 											<c:forEach items="${teacherList }" var="o">
 												<option value="${o.teacherID} "

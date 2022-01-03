@@ -166,7 +166,7 @@ public class InfoClassController {
 		List<Subscriber> subscriberList = sub.getAllSubscribersByIdCourse(infoClass.getIdCourse());
 		model.addAttribute("subscriberList",subscriberList);
 		
-		return "administrator/infoClass";
+		return "admin/infoClass";
 	}
 	@RequestMapping(value = {"/infoClass"},method = RequestMethod.POST)
 	public ResponseEntity<Map<String, Object>> ajaxSaveInfoNewClass(final Model model

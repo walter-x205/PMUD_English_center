@@ -6,11 +6,11 @@
 		src="assets/logo/logo.svg" style="width: 40px; height: 40px">
 		Middle <sup></sup> </a> <a href="test.html" class="mr-3 navbar-brand"
 		style="margin-top: -5px; margin-left: -30px;"> ${titleName }</a>
-	<li class="nav-item dropdown mr-1 mb-4"><a
+	<!-- <li class="nav-item dropdown mr-1 mb-4"><a
 		class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#"
 		role="button" aria-expanded="false"><i class="far m-l1 fa-bell i"></i>
 
-	</a> <!--Notification-->
+	</a> Notification
 		<div class="dropdown-menu">
 			<a class="dropdown-item d-flex align-items-start" href="#">
 				<div class="img" style="background-image: url(images/person_1.jpg);"></div>
@@ -39,7 +39,7 @@
 			</a> <a class="dropdown-item text-center btn-link" href="#"> View All
 				<span class="ion-ios-arrow-round-forward"></span>
 			</a>
-		</div></li>
+		</div></li> -->
 	<!-- Navbar Search-->
 	<form
 		class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">

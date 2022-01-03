@@ -56,18 +56,33 @@ public class ManageFinanceController {
 		int curYear = c.get(Calendar.YEAR);
 		return curYear;
 	}
-	@RequestMapping(value = { "/collectTuitionFees" }, method = RequestMethod.GET)
+	@RequestMapping(value = { "/collectTuitionFee" }, method = RequestMethod.GET)
 	public String get_collectTuitionFees(final Model model, final HttpServletRequest request, final HttpServletResponse response)
 			throws IOException {
 		ClassDAO classDAO = new ClassDAO();
+		CourseDAO courseDAO = new CourseDAO();
 		CollectTuitionDAO cTuitionDAO = new CollectTuitionDAO();
 		List<GeneralClass> cList = classDAO.getAllClass();
-		model.addAttribute("cList",cList);
+		
+		
 		List<Classmember> classmemberList = null;
 		model.addAttribute("classmemberList",classmemberList);
 		List<Student> studentListOfClass = null;
 		model.addAttribute("studentListOfClass",studentListOfClass);
-		return "administrator/collectTuitionFee";
+		List<Course> courseList = courseDAO.getAllCourses();
+		model.addAttribute("courseList", courseList);
+		for (GeneralClass generalClass : cList) {
+			for (Course course : courseList) {
+				if (generalClass.getIdCourse() == course.getCourseID()) {
+					generalClass.setCourseName(course.getCourseName());
+				}else {
+					continue;
+				}
+			}
+		}
+		model.addAttribute("cList",cList);
+		
+		return "admin/collectTuitionFee";
 
 	}
 	@RequestMapping(value = { "/collectTuitionFees" }, method = RequestMethod.POST)
@@ -86,6 +101,7 @@ public class ManageFinanceController {
 	public String get_collectTuitionFeesOfClass(final Model model, final HttpServletRequest request, final HttpServletResponse response,@PathVariable("idClass") int idClass)
 			throws IOException {
 		ClassDAO classDAO = new ClassDAO();
+		CourseDAO courseDAO = new CourseDAO();
 		StudentDAO studentDAO = new StudentDAO();
 		CollectTuitionDAO cTuitionDAO = new CollectTuitionDAO();
 		List<GeneralClass> cList = classDAO.getAllClass();
@@ -96,7 +112,18 @@ public class ManageFinanceController {
 		model.addAttribute("studentListOfClass",studentListOfClass);
 		List<Classmember> classmemberList = cTuitionDAO.getAllClassmemberByIdClass(idClass);
 		model.addAttribute("classmemberList",classmemberList);
-		return "administrator/collectTuitionFee";
+		List<Course> courseList = courseDAO.getAllCourses();
+		model.addAttribute("courseList", courseList);
+		for (GeneralClass generalClass : cList) {
+			for (Course course : courseList) {
+				if (generalClass.getIdCourse() == course.getCourseID()) {
+					generalClass.setCourseName(course.getCourseName());
+				}else {
+					continue;
+				}
+			}
+		}
+		return "admin/collectTuitionFee";
 
 	}
 	@RequestMapping(value = {"/chooseClass"},method = RequestMethod.POST)
@@ -186,7 +213,7 @@ public class ManageFinanceController {
 		session.removeAttribute("chooseIdTeacher");
 		session.removeAttribute("payrollList");
 		session.removeAttribute("totalMoney");
-		return "administrator/payroll";
+		return "admin/payroll";
 
 	}
 	@RequestMapping(value = { "/payTuitionFee"}, method = RequestMethod.GET)
