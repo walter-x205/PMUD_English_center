@@ -23,6 +23,7 @@ import websiteEnglishCenter.dao.AccountDAO;
 import websiteEnglishCenter.dao.Class1DAO;
 import websiteEnglishCenter.dao.ClassDAO;
 import websiteEnglishCenter.dao.CourseDAO;
+import websiteEnglishCenter.dao.StatisticalDAO;
 import websiteEnglishCenter.dao.StudentDAO;
 import websiteEnglishCenter.dao.TeacherDAO;
 import websiteEnglishCenter.dto.GeneralClass;
@@ -36,6 +37,16 @@ public class AdminHomepageController {
 	@RequestMapping(value = { "/admin" }, method = RequestMethod.GET)
 	public String admin(final Model model, final HttpServletRequest request, final HttpServletResponse response)
 			throws IOException {
+		StatisticalDAO sDao = new StatisticalDAO();
+		int countClass =sDao.countAllClass(); 
+		int countStudent =sDao.countAllStudent(); 
+		int countTeacher =sDao.countAllTeacher(); 
+		int countCourse =sDao.countAllCourse();
+		model.addAttribute("titleName", "Home");
+		model.addAttribute("countClass", countClass);
+		model.addAttribute("countStudent", countStudent);
+		model.addAttribute("countTeacher", countTeacher);
+		model.addAttribute("countCourse", countCourse);		
 		return "admin/admin";
 
 	}
@@ -51,6 +62,7 @@ public class AdminHomepageController {
 		model.addAttribute("teacherList",teacherList);
 		List<Course> courseList = course.getAllCourses();
 		model.addAttribute("courseList",courseList);
+		model.addAttribute("titleName", "Quản lý lớp học");
 //		return "administrator/classList";
 		return "admin/classList";
 	}
@@ -62,6 +74,7 @@ public class AdminHomepageController {
 		StudentDAO stDAO = new StudentDAO();
 		List<Student> studentList = stDAO.getAllStudents();
 		model.addAttribute("studentList",studentList);
+		model.addAttribute("titleName", "Quản lý học viên");
 		return "admin/studentList";
 //		return "administrator/studentList";
 	}
@@ -72,6 +85,7 @@ public class AdminHomepageController {
 		CourseDAO courseDAO = new CourseDAO();
 		courseList = courseDAO.getAllCourses();
 		model.addAttribute("courseList",courseList);
+		model.addAttribute("titleName", "Quản lý khoá học");
 //		return "administrator/courseList";
 		return "admin/courseList";
 	}
@@ -82,7 +96,7 @@ public class AdminHomepageController {
 		TeacherDAO teacherDAO = new TeacherDAO();
 		teacherList = teacherDAO.getAllTeachers();
 		model.addAttribute("teacherList",teacherList);
-		model.addAttribute("titleForm", "Danh sách giảng viên");
+		model.addAttribute("titleName", "Quản lý giảng viên");
 		return "admin/teacherList";
 //		return "administrator/teacherList";
 	}

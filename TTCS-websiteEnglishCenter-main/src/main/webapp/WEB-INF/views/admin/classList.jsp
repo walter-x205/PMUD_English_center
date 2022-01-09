@@ -63,8 +63,8 @@
 								<c:forEach items="${cList }" var="o">
 									<tbody>
 										<tr>
-											<th scope="row" name="idClass"><a href="${base }/infoClass/${o.idClass}"  >${o.idClass}</a></th>
-											<td name="idClass"><a href="${base }/infoClass/${o.idClass}"  >${o.className}</a></td>
+											<th scope="row" >${o.idClass}</th>
+											<td >${o.className}</td>
 											<c:forEach items="${courseList }" var="couList">
 												<c:if test="${couList.courseID == o.idCourse }">
 													<td >${couList.courseName}</td>

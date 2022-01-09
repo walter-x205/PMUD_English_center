@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql"%>
 <!DOCTYPE html>
 <html lang="en">
@@ -37,7 +39,7 @@
 							<div class="mb-2 d-flex justify-content-between align-items-center">
 
                                 <div class="position-relative"> <span class=" search"></span>
-                                    <input class="form-control w-50" placeholder="Search by order#, name..." style="margin-left: 145%;">
+                                    <input class="form-control w-75" placeholder="By name or id" style="margin-left: 120%;">
                                 </div>
                                 <button type="button" class="btn btn-secondary btn-round fs-5 mt-1" style="margin-left: -90px;">Search</button>
                                 <h4 class="table-title" style="position: absolute;float: left;">Danh sách Lớp</h4>
@@ -86,12 +88,12 @@
 								<table class="table table-responsive table-borderless">
 									<thead>
 										<tr class="bg-header ">
-											<th scope="col " width="10% ">ID</th>
+											<th scope="col " width="5% ">ID</th>
 											<th scope="col " width="20% ">Họ tên</th>
 											<th scope="col" width="15% ">Học Phí</th>
 											<th scope="col " width="15% ">Đã đóng</th>
 											<th scope="col " width="15% ">Còn thiếu</th>
-											<th scope="col " width="20% ">Trạng thái</th>
+											<th scope="col " width="25% ">Trạng thái</th>
 											<th scope="col " class="text-end " width="5% "><span>Edit</span></th>
 										</tr>
 									</thead>
@@ -123,7 +125,7 @@
 														<c:if
 															test="${cmemberList.paidTuition > 0 && cmemberList.paidTuition <infoClass.tuitionFees }">
 															<td>
-																<div class="form-control bg-warning text-center">Đang hoàn thành</div>
+																<div class="form-control bg-warning text-center">Còn thiếu</div>
 															</td>
 														</c:if>
 														<c:if test="${cmemberList.paidTuition == 0}">
@@ -131,60 +133,49 @@
 																<div class="form-control bg-danger text-center">Chưa nộp</div>
 															</td>
 														</c:if>
-														<td>
-															<button type="button" class="btn btn-outline-primary btn-sm py-2 form-control w-40"
-																data-toggle="modal" data-target="#exampleModal-${o.idStudent }" >
-																<i class="fas fa-edit"></i>
-															</button> <!-- Modal -->
-															<div class="modal fade" id="exampleModal-${o.idStudent }" tabindex="-1" role="dialog"
-																aria-labelledby="exampleModalLabel" aria-hidden="true">
-																<div class="modal-dialog" role="document">
-																	<div class="modal-content">
-																		<div class="modal-header">
-																			<h5 class="modal-title" id="exampleModalLabel">Nộp
-																				Học Phí</h5>
-																			<button type="button" class="close"
-																				data-dismiss="modal" aria-label="Close">
-																				<span aria-hidden="true">&times;</span>
-																			</button>
-																		</div>
-			
-																		<div class="modal-body">
-																			<form action="${base }/payTuitionFee" method="POST">
-																				<div class="d-flex mb-2">
-																					<span>Học phí:</span>
-																					<p class="text-danger mb-0 ml-2">
-																						<fmt:setLocale value="vi_VN" scope="session" />
-																						<fmt:formatNumber value="${infoClass.tuitionFees}"
-																							type="currency" />
-																					</p>
-																				</div>
-																				<div class="d-flex mb-2">
-																					<span>Số tiền cần nộp:</span>
-																					<p class="text-danger mb-0 ml-2">
-																						<fmt:setLocale value="vi_VN" scope="session" />
-																						<fmt:formatNumber
-																							value="${infoClass.tuitionFees-cmemberList.paidTuition}"
-																							type="currency" />
-																					</p>
-																				</div>
-																				<div class="d-flex">
-																					<span>Số tiền nộp:</span>
-			<!-- 																        	<input type="text" id="payTuitionFees1234" name="payTuitionFees" class="form-control" placeholder="Nhập số tiền nộp" value=""> -->
-																					<input type="text" id="payTuitionFee-${o.idStudent }" name="payTuitionFee" class="form-control">
-																				</div>
-																			</form>
-																		</div>
-			
-																		<div class="modal-footer">
-																			<button type="button" class="btn btn-secondary"
-																				data-dismiss="modal">Đóng</button>
-																			<button type="button" class="btn btn-primary" id="save_menu_button" onclick="saveTuitonFee(${cmemberList.idClass},'payTuitionFee-${o.idStudent }',${o.idStudent });">Lưu</button>
-																		</div>
-																	</div>
-																</div>
-															</div>
-														</td>
+														<td><button type="button" class="btn btn-secondary btn-round" data-bs-toggle="modal" data-bs-target="#edit-tution-${o.idStudent }"> 
+															<i class="fas fa-user-edit"></i></button></td>
+
+		                                                <div class="modal fade" id="edit-tution-${o.idStudent }" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="edit-tutionLabel" aria-hidden="true">
+		                                                    <div class="modal-dialog">
+		                                                        <div class="modal-content">
+		                                                            <div class="modal-header">
+		                                                                <h5 class="modal-title" id="edit-tutionLabel">Nộp học phí</h5>
+		                                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+		                                                        	
+		                                                            </div>
+		                                                            <div class="modal-body">
+		                                                            	<form action="${base }/payTuitionFee" method="POST">
+																			<div class="d-flex mb-2">
+																				<span>Học phí:</span>
+																				<p class="text-danger mb-0 ml-2">
+																					<fmt:setLocale value="vi_VN" scope="session" />
+																					<fmt:formatNumber value="${infoClass.tuitionFees}"
+																						type="currency" />
+																				</p>
+																			</div>
+																			<div class="d-flex mb-2">
+																				<span>Số tiền cần nộp:</span>
+																				<p class="text-danger mb-0 ml-2">
+																					<fmt:setLocale value="vi_VN" scope="session" />
+																					<fmt:formatNumber
+																						value="${infoClass.tuitionFees-cmemberList.paidTuition}"
+																						type="currency" />
+																				</p>
+																			</div>
+																			<div class="d-flex">
+																				<label class="form-label">Số tiền nộp:</label>
+																				<input type="text" id="payTuitionFee-${o.idStudent }" name="payTuitionFee" class="form-control">
+																			</div>
+																		</form>                                       
+		                                                            </div>
+		                                                            <div class="modal-footer">
+		                                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
+		                                                                <button type="button" class="btn btn-primary" id="save_menu_button" onclick="saveTuitonFee(${cmemberList.idClass},'payTuitionFee-${o.idStudent }',${o.idStudent });">Lưu</button>
+		                                                            </div>
+		                                                        </div>
+		                                                    </div>
+		                                                </div>														
 													</c:if>
 			
 												</c:forEach>

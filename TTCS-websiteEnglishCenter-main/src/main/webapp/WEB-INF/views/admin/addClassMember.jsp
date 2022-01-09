@@ -36,7 +36,7 @@
 						<div class="col-xl-6" style="height:400px;">
 							<div
 								class="mb-2 d-flex justify-content-between align-items-center">
-								<div class="position-relative " style="margin-left: 180px;">
+								<div class="position-relative " style="margin-left: 180px; margin-top:-3.5px;">
 
 									<h4 class="table-title mr-1">Danh sách đăng kí học</h4>
 								</div>
@@ -78,21 +78,21 @@
 								</table>
 							</div>
 						</div>
-						<div class="col-md-6 mt-2" style="height:400px;">
+						<div class="col-md-6" style="height:400px;">
 							<div
 								class="mb-2 d-flex justify-content-between align-items-center">
 							</div>
 							<div class="position-relative d-flex">
 								<h4 class="table-title ml-1 mt-1">Danh sách Học Viên</h4>
-								<input class="form-control w-25 m-l5"
-									placeholder="Search by order#, name... ">
-								<button type="button" class="btn btn-secondary btn-round ml1">
+								<input class="form-control w-25 m-l5 mb-1"
+									placeholder="By name or id">
+								<button type="button" class="btn btn-secondary btn-round ml1 mb-1 ">
 									<i class="fas fa-search"></i>
 								</button>
 							</div>
 
-							<div class="table-responsive table-scroll h-50" style="margin-bottom: -40px;">
-								<table class="table table-responsive table-borderless" >
+							<div class="table-responsive h-50" style="margin-bottom: -40px;">
+								<table class="table table-responsive table-borderless  " >
 									<thead>
 										<tr class="bg-header ">
 											<th scope="col " width="4% ">ID</th>
@@ -111,7 +111,7 @@
 												<td>${o.birthday }</td>
 												<td>${o.gender }</td>
 												<td>${o.phone }</td>
-												<td> <button type="button" class="btn btn-secondary btn-round" onclick="addStToClass(this);"><i class="fas fa-user-plus"></i></button></td>
+												<td> <button type="button" class="btn btn-secondary btn-round" onclick="addStToClass(this,${o.idStudent });"><i class="fas fa-user-plus"></i></button></td>
 											</tr>
 										</c:forEach>
 									</tbody>
@@ -122,9 +122,12 @@
 
 						<div class="row">
 							<div class="col-xl-12" style="margin-top: -130px;">
-								<div class="table-title fs-3 mt2">Danh sách Lớp</div>
-
-								<div class="table-responsive table-scroll h-100">
+							 	<div class="table-title fs-3 mt-2" style="margin-left: 150px;">
+                                    Danh sách học viên mới của lớp
+                                    <button type="button" class="btn btn-secondary btn-round w-20 mb-1 ml-5" onclick="saveStListForClass(${infoClass.idClass});" style="z-index:1000; float:right;">Thêm sinh viên vào lớp</button>
+                                </div>
+								
+								<div class="table-responsive table-scroll" style="height: 270px;">
 									<table class="table table-responsive table-borderless">
 										<thead>
 											<tr class="bg-header">
@@ -141,9 +144,6 @@
 								</div>
 								
 							</div>
-						</div>
-						<div class="row">
-							<a class="btn btn-primary w-25" onclick="saveStListForClass(${infoClass.idClass});" role="button" >Thêm vào lớp</a>
 						</div>
 					</div>
 				</div>
