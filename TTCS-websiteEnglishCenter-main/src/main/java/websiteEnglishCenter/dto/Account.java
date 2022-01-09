@@ -10,6 +10,7 @@ public class Account {
 	private int isStudent;
 	private int isTeacher;
 	private int isStaff;
+	private String accountType;
 	private String fullname;
 	private String phone;
 	private String email;
@@ -86,6 +87,13 @@ public class Account {
 	public void setFullname(String fullname) {
 		this.fullname = fullname;
 	}
+	
+	public String getAccountType() {
+		return accountType;
+	}
+	public void setAccountType(String accountType) {
+		this.accountType = accountType;
+	}
 	public Account() {
 		super();
 	}
@@ -93,6 +101,16 @@ public class Account {
 		super();
 		this.username = username;
 		this.password = password;
+	}
+	
+	
+	public Account(int idAccount, int idUser, String username, String password, String accountType) {
+		super();
+		this.idAccount = idAccount;
+		this.idUser = idUser;
+		this.username = username;
+		this.password = password;
+		this.accountType = accountType;
 	}
 	
 	public Account(int idAccount, int idUser, String username, String password, int isStudent, int isTeacher,

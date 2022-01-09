@@ -11,7 +11,8 @@ public class ConnectDatabase {
 	private static Connection connection;
     private static String url = "jdbc:mysql://127.0.0.1:3306/";
     private static String user = "root";
-    private static String password = "tangoctue1502";
+//    private static String password = "tangoctue1502";
+    private static String password = "NgocThuy1997";
 
     public static Connection getConnection() throws SQLException {
         connection = DriverManager.getConnection(url, user, password);
@@ -37,7 +38,7 @@ public class ConnectDatabase {
 		try {
 			System.out.println(new ConnectDatabase().getConnection());
 		} catch (Exception e) {
-			// TODO: handle exception
+			System.out.println("connection failed");
 		}
 	
 	}

@@ -1,6 +1,6 @@
 Manifest-Version: 1.0
-Built-By: AD
-Build-Jdk: 16.0.2
+Built-By: DELL
+Build-Jdk: 16.0.1
 Implementation-Title: websiteEnglishCenter Maven Webapp
 Implementation-Version: 0.0.1-SNAPSHOT
 Implementation-Vendor-Id: doAn.ttcs

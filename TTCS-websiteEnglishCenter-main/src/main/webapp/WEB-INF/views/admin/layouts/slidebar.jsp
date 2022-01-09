@@ -90,9 +90,9 @@
 					aria-labelledby="headingOne"
 					data-bs-parent="#sidenavAccordionPages">
 					<nav class="sb-sidenav-menu-nested nav">
-						<a class="nav-link" href="Acount-admin.html">Tài khoản Nhân
-							Viên</a> <a class="nav-link" href="Acount-teacher.html">Tài khoản
-							Giảng Viên</a> <a class="nav-link" href="account-student.html">Tài
+						<a class="nav-link" href="${base }/adminAccount">Tài khoản Nhân
+							Viên</a> <a class="nav-link" href="${base }/teacherAccount">Tài khoản
+							Giảng Viên</a> <a class="nav-link" href="${base }/studentAccount">Tài
 							khoản Học Viên</a>
 					</nav>
 				</div>

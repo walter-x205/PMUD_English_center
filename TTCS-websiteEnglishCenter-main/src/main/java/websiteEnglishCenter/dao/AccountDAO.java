@@ -113,15 +113,20 @@ public class AccountDAO {
 			e.getStackTrace();
 		}
 	}
-	public void insertAccountStaff(int idStaff, String username, String password ) {
-		System.out.println(idStaff+ " "+username+" "+password);
-		String query ="INSERT INTO `englishcenter`.`account_user` (`iduser`, `username`, `password`, `isstaff`) VALUES (?, ?, ?, '1');";
+	public void insertAccountStaff(int idStaff, String username, String password, int idType) {
+		String accountType = "ADMIN";
+		if (idType == 2) {
+			accountType = "STAFF";
+		}
+		System.out.println(idStaff+ " "+username+" "+password+" "+accountType);
+		String query ="INSERT INTO `englishcenter`.`account_user` (`iduser`, `username`, `password`, `account_type`) VALUES (?, ?, ?, ?);";
 		try {
 			connection = new ConnectDatabase().getConnection();
 			ps = connection.prepareStatement(query);
 			ps.setInt(1, idStaff);
 			ps.setString(2, username);
 			ps.setString(3, password);
+			ps.setString(4,	accountType);
 			ps.executeUpdate();
 		} catch (Exception e) {
 			e.getStackTrace();
@@ -230,13 +235,23 @@ public class AccountDAO {
 	}
 	public List<Account> getAllAccountStaff() {
 		List<Account> accountList = new ArrayList<>();
-		String query = "SELECT * FROM englishcenter.account_user,englishcenter.staff where isstaff=1 and account_user.iduser=staff.idstaff;";
+		String query = "SELECT * FROM englishcenter.account_user,englishcenter.staff where (account_type='ADMIN' or account_type = 'STAFF') and account_user.iduser=staff.idstaff;";
 		try {
 			connection = new ConnectDatabase().getConnection();
 			ps = connection.prepareStatement(query);
 			rs = ps.executeQuery();
 			while (rs.next()) {
-				accountList.add(new Account(rs.getInt(1), rs.getInt(2), rs.getString(3), rs.getString(4), rs.getInt(5), rs.getInt(6), rs.getInt(7), rs.getString(9), rs.getDate(10), rs.getString(11), rs.getString(12), rs.getString(13), rs.getString(14),rs.getInt(16)));
+				Account account = new Account();
+				account.setIdAccount(rs.getInt(1));
+				account.setIdUser(rs.getInt(2));
+				account.setUsername(rs.getString(3));
+				account.setPassword(rs.getString(4));
+				account.setAccountType(rs.getString(5));
+				account.setFullname(rs.getString(7));
+				account.setBirthday(rs.getDate(8));
+				account.setPhone(rs.getString(11));
+				account.setEmail(rs.getString(12));
+				accountList.add(account);
 			}
 		} catch (Exception e) {
 			// TODO: handle exception
@@ -245,13 +260,23 @@ public class AccountDAO {
 	}
 	public List<Account> getAllAccountTeacher() {
 		List<Account> accountList = new ArrayList<>();
-		String query = "SELECT * FROM englishcenter.account_user,englishcenter.teacher where isteacher=1 and account_user.iduser=teacher.idteacher;";
+		String query = "SELECT * FROM englishcenter.account_user,englishcenter.teacher where account_type = 'TEACHER' and account_user.iduser=teacher.idteacher;";
 		try {
 			connection = new ConnectDatabase().getConnection();
 			ps = connection.prepareStatement(query);
 			rs = ps.executeQuery();
 			while (rs.next()) {
-				accountList.add(new Account(rs.getInt(1), rs.getInt(2), rs.getString(3), rs.getString(4), rs.getInt(5), rs.getInt(6), rs.getInt(7), rs.getString(9), rs.getDate(10), rs.getString(11), rs.getString(12), rs.getString(13), rs.getString(14)));
+				Account account = new Account();
+				account.setIdAccount(rs.getInt(1));
+				account.setIdUser(rs.getInt(2));
+				account.setUsername(rs.getString(3));
+				account.setPassword(rs.getString(4));
+				account.setAccountType(rs.getString(5));
+				account.setFullname(rs.getString(7));
+				account.setBirthday(rs.getDate(8));
+				account.setPhone(rs.getString(11));
+				account.setEmail(rs.getString(12));
+				accountList.add(account);
 			}
 		} catch (Exception e) {
 			// TODO: handle exception
@@ -260,13 +285,23 @@ public class AccountDAO {
 	}
 	public List<Account> getAllAccountStudent() {
 		List<Account> accountList = new ArrayList<>();
-		String query = "SELECT * FROM englishcenter.account_user,englishcenter.student where isstudent=1 and account_user.iduser=student.idstudent;";
+		String query = "SELECT * FROM englishcenter.account_user,englishcenter.student where account_type = 'STUDENT' and account_user.iduser=student.idstudent;";
 		try {
 			connection = new ConnectDatabase().getConnection();
 			ps = connection.prepareStatement(query);
 			rs = ps.executeQuery();
 			while (rs.next()) {
-				accountList.add(new Account(rs.getInt(1), rs.getInt(2), rs.getString(3), rs.getString(4), rs.getInt(5), rs.getInt(6), rs.getInt(7), rs.getString(9), rs.getDate(10), rs.getString(11), rs.getString(12), rs.getString(13), rs.getString(14)));
+				Account account = new Account();
+				account.setIdAccount(rs.getInt(1));
+				account.setIdUser(rs.getInt(2));
+				account.setUsername(rs.getString(3));
+				account.setPassword(rs.getString(4));
+				account.setAccountType(rs.getString(5));
+				account.setFullname(rs.getString(7));
+				account.setBirthday(rs.getDate(8));
+				account.setPhone(rs.getString(11));
+				account.setEmail(rs.getString(12));
+				accountList.add(account);
 			}
 		} catch (Exception e) {
 			// TODO: handle exception
@@ -289,9 +324,6 @@ public class AccountDAO {
 		return staffPositionList;
 	}
 	public static void main(String[] args) {
-		AccountDAO aDao = new AccountDAO();
-//		aDao.insertAccountStudent(3, "tue", "123");
-		Date date=new Date();
-		aDao.insertNewStaff("a", date, "a", "s", "s", "sd", 2);
+		System.out.println();
 	}
 }
