@@ -595,13 +595,7 @@ function addAccountStaff(){
 	var  fullname=document.getElementById('fullName').value;
 	var  date=document.getElementById('birthday').value;
 	var  birthday = new Date(date);
-	var	 genders = document.getElementsByName('gender');
-	var  gender = '';
-	for(var i = 0; i < genders.length; i++){
-		if(genders[i].checked == true){
-			gender = genders[i].value;
-		}
-	}
+	var	 gender = document.getElementById('gender').value;
 	var  phone=document.getElementById('phone').value;
 	var  email=document.getElementById('email').value;
 	var  address=document.getElementById('address').value;
@@ -617,7 +611,7 @@ function addAccountStaff(){
 		data:JSON.stringify(data),
 		success: function(jsonResult){
 			alert("Thêm tài khoản nhân viên thành công!");
-			$('body').load('/accountList/nhan-vien');
+			$('body').load('/adminAccount');
 		},
 		error: function(jqXhr,textStatus,errorMessage){}
 	});

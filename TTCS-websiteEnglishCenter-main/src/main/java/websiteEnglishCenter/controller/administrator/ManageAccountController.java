@@ -29,41 +29,69 @@ import websiteEnglishCenter.dto.Teacher;
 @Controller
 public class ManageAccountController {
 	//CRUD tài khoản nhân viên
-	@RequestMapping(value = { "/accountList/{seo}" }, method = RequestMethod.GET)
-	public String getAccountList(final Model model, final HttpServletRequest request, final HttpServletResponse response,@ModelAttribute("seo") String seo)
+//	@RequestMapping(value = { "/accountList/{seo}" }, method = RequestMethod.GET)
+//	public String getAccountList(final Model model, final HttpServletRequest request, final HttpServletResponse response,@ModelAttribute("seo") String seo)
+//			throws IOException {
+//		AccountDAO accountDAO =new AccountDAO();
+//		TeacherDAO tDao =new TeacherDAO();
+//		StudentDAO sDao = new StudentDAO();
+//		List<Account> aList = null;
+//		List<Teacher> tList = tDao.getAllTeachers();
+//		List<Student> sList = sDao.getAllStudents();
+//		List<Staff> staffList = accountDAO.getAllStaffs();
+//		boolean check=false;
+//		if (seo.equals("nhan-vien")) {
+//			aList =accountDAO.getAllAccountStaff();
+//			List<StaffPosition> sPositionList =accountDAO.getAllAccountStaffPosition();
+//			model.addAttribute("sPositionList",sPositionList);
+//			model.addAttribute("staffList",staffList);
+//			check=true;
+//		}
+//		if (seo.equals("hoc-vien")) {
+//			aList =accountDAO.getAllAccountStudent();
+//			check=false;
+//			model.addAttribute("studentList",sList);
+//		}
+//		if (seo.equals("giang-vien")) {
+//			aList =accountDAO.getAllAccountTeacher();
+//			check=false;
+//			model.addAttribute("teacherList",tList);
+//		}
+//		
+//		
+//		model.addAttribute("accountList",aList);
+//		model.addAttribute("checkStaff",check);
+//		
+//		return "administrator/accountList";
+//	}
+	
+	@RequestMapping(value = { "/adminAccount" }, method = RequestMethod.GET)
+	public String getAdminAccountList(final Model model, final HttpServletRequest request, final HttpServletResponse response)
 			throws IOException {
 		AccountDAO accountDAO =new AccountDAO();
-		TeacherDAO tDao =new TeacherDAO();
-		StudentDAO sDao = new StudentDAO();
-		List<Account> aList = null;
-		List<Teacher> tList = tDao.getAllTeachers();
-		List<Student> sList = sDao.getAllStudents();
-		List<Staff> staffList = accountDAO.getAllStaffs();
-		boolean check=false;
-		if (seo.equals("nhan-vien")) {
-			aList =accountDAO.getAllAccountStaff();
-			List<StaffPosition> sPositionList =accountDAO.getAllAccountStaffPosition();
-			model.addAttribute("sPositionList",sPositionList);
-			model.addAttribute("staffList",staffList);
-			check=true;
-		}
-		if (seo.equals("hoc-vien")) {
-			aList =accountDAO.getAllAccountStudent();
-			check=false;
-			model.addAttribute("studentList",sList);
-		}
-		if (seo.equals("giang-vien")) {
-			aList =accountDAO.getAllAccountTeacher();
-			check=false;
-			model.addAttribute("teacherList",tList);
-		}
-		
-		
-		model.addAttribute("accountList",aList);
-		model.addAttribute("checkStaff",check);
-		
-		return "administrator/accountList";
+		List<Account> aList = accountDAO.getAllAccountStaff();
+		model.addAttribute("adminAccountList",aList);
+		return "admin/adminAccount";
 	}
+	
+	@RequestMapping(value = { "/studentAccount" }, method = RequestMethod.GET)
+	public String getStudentAccountList(final Model model, final HttpServletRequest request, final HttpServletResponse response)
+			throws IOException {
+		AccountDAO accountDAO =new AccountDAO();
+		List<Account> aList = accountDAO.getAllAccountStudent();
+		model.addAttribute("studentAccountList",aList);
+		return "admin/studentAccount";
+	}
+	
+	@RequestMapping(value = { "/teacherAccount" }, method = RequestMethod.GET)
+	public String getTeacherAccountList(final Model model, final HttpServletRequest request, final HttpServletResponse response)
+			throws IOException {
+		AccountDAO accountDAO =new AccountDAO();
+		List<Account> aList = accountDAO.getAllAccountTeacher();
+		model.addAttribute("teacherAccountList",aList);
+		return "admin/teacherAccount";
+	}
+	
 	@RequestMapping(value = { "/addNewAccountStaff" }, method = RequestMethod.GET)
 	public String getAddAccount(final Model model, final HttpServletRequest request, final HttpServletResponse response)
 			throws IOException {
@@ -72,7 +100,7 @@ public class ManageAccountController {
 		AccountDAO accountDAO =new AccountDAO();
 		List<StaffPosition> sPositionList =accountDAO.getAllAccountStaffPosition();
 		model.addAttribute("sPositionList",sPositionList);
-		return "administrator/addNewAccountStaff";
+		return "admin/addNewAccountStaff";
 
 	}
 	@RequestMapping(value = { "/addNewAccountStaff" }, method = RequestMethod.POST)
@@ -84,7 +112,7 @@ public class ManageAccountController {
 		System.out.println(account.getFullname());
 		accountDAO.insertNewStaff(account.getFullname(), account.getBirthday(),account.getGender(), account.getPhone(), account.getEmail(), account.getAddress(),account.getIdPosition());
 		int IdNewStaff= accountDAO.getMaxStaffID();
-		accountDAO.insertAccountStaff(IdNewStaff,account.getUsername(), account.getPassword());
+		accountDAO.insertAccountStaff(IdNewStaff,account.getUsername(), account.getPassword(), account.getIdPosition());
 		Map<String, Object> jsonResult = new HashMap<String, Object>();
 		jsonResult.put("code",200);
 		jsonResult.put("message",account);
