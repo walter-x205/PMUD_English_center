@@ -31,7 +31,7 @@
 		 <!---This is Content-->
          <div id="layoutSidenav_content">
              <div class="container-fluid px-4">
-                 <div class="row mt-5" style="margin-left: 200px;">
+                 <div class="row mt-5" >
                      <div class="card">
                          <div class="card-header bg-header">
                              <h3 class="fs-2">Thông tin khóa học</h3>
@@ -50,7 +50,7 @@
                                  <div class="col-12">
 									<div class="form-floating overflow-auto">
 <!-- 										<label for="courseName" class="form-label fs-5">Tên khóa học mới</label> -->
-										<textarea class="form-control" placeholder="Leave a comment here" id="description" name="description" style="height: 350px">${course.description }</textarea>
+										<textarea class="form-control" id="description" name="description" style="height: 350px">${course.description }</textarea>
 										<!-- <label for="Detail">Mô tả khóa học</label> -->
 									  </div>
                                  </div>

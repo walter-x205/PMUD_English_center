@@ -71,6 +71,7 @@ public class ManageFinanceController {
 		model.addAttribute("studentListOfClass",studentListOfClass);
 		List<Course> courseList = courseDAO.getAllCourses();
 		model.addAttribute("courseList", courseList);
+		model.addAttribute("titleName", "Quản lý học phí");
 		for (GeneralClass generalClass1 : cList) {
 			for (Course course : courseList) {
 				if (generalClass1.getIdCourse() == course.getCourseID()) {
@@ -107,6 +108,7 @@ public class ManageFinanceController {
 		List<GeneralClass> cList = classDAO.getAllClass();
 		model.addAttribute("cList",cList);
 		GeneralClass infoClass = classDAO.getInfoClassByClassID(idClass);
+		System.out.println(infoClass.toString());
 		model.addAttribute("infoClass",infoClass);
 		List<Student> studentListOfClass = studentDAO.getAllStudentsByClassID(idClass);
 		model.addAttribute("studentListOfClass",studentListOfClass);
@@ -114,6 +116,7 @@ public class ManageFinanceController {
 		model.addAttribute("classmemberList",classmemberList);
 		List<Course> courseList = courseDAO.getAllCourses();
 		model.addAttribute("courseList", courseList);
+		model.addAttribute("titleName", "Quản lý học phí");
 		for (GeneralClass generalClass : cList) {
 			for (Course course : courseList) {
 				if (generalClass.getIdCourse() == course.getCourseID()) {
@@ -166,7 +169,7 @@ public class ManageFinanceController {
 		System.out.println(teacherID);
 		HttpSession session = request.getSession();
 		session.setAttribute("chooseIdTeacher", teacherID);
-		
+		model.addAttribute("titleName", "Quản lý lương");
 		System.out.println(getMonth);
 		
 		Date curDate = new Date();
@@ -204,6 +207,7 @@ public class ManageFinanceController {
 		List<GeneralClass> cList = classDAO.getAllClass();
 		model.addAttribute("cList",cList);
 		model.addAttribute("teacherList",teachers);
+		model.addAttribute("titleName", "Quản lý lương");
 		Date curDate = new Date();
 		int getMonth =getCurMonth(curDate);
 		int curYear =getCurYear(curDate);

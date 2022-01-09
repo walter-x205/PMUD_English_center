@@ -372,13 +372,7 @@ function updateStudent(idStudent){
 	var  fullName=document.getElementById('fullName').value;
 	var  date=document.getElementById('birthday').value;
 	var  birthday = new Date(date);
-	var	 genders = document.getElementsByName('gender');
-	var  gender = '';
-	for(var i = 0; i < genders.length; i++){
-		if(genders[i].checked == true){
-			gender = genders[i].value;
-		}
-	}
+	var	 gender = document.getElementById('gender').value;
 	var  phone=document.getElementById('phone').value;
 	var  email=document.getElementById('email').value;
 	var  address=document.getElementById('address').value;
@@ -504,13 +498,7 @@ function updateInfoTeacher(idTeacher){
 	var  fullName=document.getElementById('fullName').value;
 	var  date=document.getElementById('birthday').value;
 	var  birthday = new Date(date);
-	var	 genders = document.getElementsByName('gender');
-	var  gender = '';
-	for(var i = 0; i < genders.length; i++){
-		if(genders[i].checked == true){
-			gender = genders[i].value;
-		}
-	}
+	var	 gender = document.getElementById('gender').value;
 	var  phone=document.getElementById('phone').value;
 	var  email=document.getElementById('email').value;
 	var  address=document.getElementById('address').value;

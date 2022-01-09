@@ -35,9 +35,11 @@
 						<div
 							class="mb-2 d-flex justify-content-between align-items-center">
 							<div class="position-relative">
-								<span class="position-absolute search"><i
-									class="fa fa-search"></i></span> <input class="form-control w-100"
-									placeholder="Search by order#, name...">
+<!-- 								<input class="form-control w-25 m-l5 mb-1" -->
+<!-- 									placeholder="By name or id "> -->
+<!-- 								<button type="button" class="btn btn-secondary btn-round ml1 mb-1 "> -->
+<!-- 									<i class="fas fa-search"></i> -->
+<!-- 								</button> -->
 							</div>
 							<div class="px-2">
 								<a type="button" class="btn btn-secondary add-button"
@@ -78,6 +80,8 @@
 								</c:forEach>
 							</table>
 						</div>
+					</div>
+				</div>
 			</main>
 		</div>
 	</div>

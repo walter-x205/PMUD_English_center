@@ -45,7 +45,7 @@
 										<div class="col-7">
 											<div class="numbers">
 												<p class="card-category">Giảng Viên</p>
-												<h4 class="card-title">N Giảng viên</h4>
+												<h4 class="card-title">${countTeacher } Giảng viên</h4>
 											</div>
 										</div>
 									</div>
@@ -70,7 +70,7 @@
 										<div class="col-7">
 											<div class="numbers">
 												<p class="card-category">Sinh Viên</p>
-												<h4 class="card-title">N Sinh viên</h4>
+												<h4 class="card-title">${countStudent } Sinh viên</h4>
 											</div>
 										</div>
 									</div>
@@ -95,7 +95,7 @@
 										<div class="col-7">
 											<div class="numbers">
 												<p class="card-category">Khóa Học</p>
-												<h4 class="card-title">N Khóa học</h4>
+												<h4 class="card-title">${countCourse } Khóa học</h4>
 											</div>
 										</div>
 									</div>
@@ -120,7 +120,7 @@
 										<div class="col-7">
 											<div class="numbers">
 												<p class="card-category">Lớp học</p>
-												<h4 class="card-title">N Lớp học</h4>
+												<h4 class="card-title">${countClass } Lớp học</h4>
 											</div>
 										</div>
 									</div>

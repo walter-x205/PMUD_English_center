@@ -102,9 +102,9 @@
 	                                        <div class="form-group">
 	                                            <label>Giới tính</label>
 	                                            <select id="gender" class="form-select">
-										<option value="Nam" ${st.gender =="Nam"?"selected":"" }>Nam</option>
-										<option value="Nữ" ${st.gender == "Nữ"?"selected":"" }>Nữ</option>
-									</select>
+													<option value="Nam" ${st.gender =="Nam"?"selected":"" }>Nam</option>
+													<option value="Nữ" ${st.gender == "Nữ"?"selected":"" }>Nữ</option>
+												</select>
 	                                        </div>
 	                                    </div>
 	                                </div>
@@ -133,7 +133,7 @@
 	                                    </div>
 	                                    <div class="row">
 	                                        <div class="update ml-auto mr-auto">
-	                                            <button type="submit" class="btn btn-secondary btn-round">Cập nhật Profile</button>
+	                                            <button type="button" class="btn btn-secondary btn-round"  onclick="updateStudent(${st.idStudent});">Cập nhật</button>
 	                                        </div>
 	                                    </div>									
 									</div>

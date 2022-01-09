@@ -38,13 +38,11 @@
 								class="mb-2 d-flex justify-content-between align-items-center">
 
 								<div class="position-relative">
-									<span class=" search"></span> <input class="form-control w-50"
-										placeholder="Search by order#, name..."
-										style="margin-left: 145%;">
+									<span class=" search"></span> <input class="form-control w-75" placeholder="By name or id" style="margin-left: 120%;">
 								</div>
 								<button type="button"
 									class="btn btn-secondary btn-round fs-5 mt-1"
-									style="margin-left: -90px;">Search</button>
+									style="margin-left: -90px;" onclick="searchTeacher();">Search</button>
 								<h4 class="table-title" style="position: absolute; float: left;">Chọn
 									Giảng Viên</h4>
 							</div>

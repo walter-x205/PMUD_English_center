@@ -25,8 +25,9 @@
 				<div class="collapse" id="collapseLayouts"
 					aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
 					<nav class="sb-sidenav-menu-nested nav">
-						<a class="nav-link" href="${base }/teacherList">Quản lý Giảng Viên</a>
-						<a class="nav-link" href="${base }/studentList">Quản lý Học Viên</a>
+						<a class="nav-link" href="${base }/teacherList">Quản lý Giảng
+							Viên</a> <a class="nav-link" href="${base }/studentList">Quản lý
+							Học Viên</a>
 					</nav>
 				</div>
 
@@ -44,36 +45,27 @@
 					aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
 					<nav class="sb-sidenav-menu-nested nav accordion"
 						id="sidenavAccordionPages">
-						<a class="nav-link collapsed" href="" data-bs-toggle="collapse"
-							data-bs-target="#pagesCollapseAuth" aria-expanded="false"
-							aria-controls="pagesCollapseAuth"> Quản lý khóa học
-							<div class="sb-sidenav-collapse-arrow">
-								<i class="fas fa-angle-down"></i>
-							</div>
-						</a>
-						<div class="collapse" id="pagesCollapseAuth"
-							aria-labelledby="headingOne"
-							data-bs-parent="#sidenavAccordionPages">
-							<nav class="sb-sidenav-menu-nested nav">
-								<a class="nav-link" href="${base }/courseList">Danh sách</a> <a
-									class="nav-link" href="${base }/addNewCourse">Thêm khóa học</a>
-							</nav>
-						</div>
-						<a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
-							data-bs-target="#pagesCollapseError" aria-expanded="false"
-							aria-controls="pagesCollapseError"> Quản lý lớp học
-							<div class="sb-sidenav-collapse-arrow">
-								<i class="fas fa-angle-down"></i>
-							</div>
-						</a>
-						<div class="collapse" id="pagesCollapseError"
-							aria-labelledby="headingOne"
-							data-bs-parent="#sidenavAccordionPages">
-							<nav class="sb-sidenav-menu-nested nav">
-								<a class="nav-link" href="${base }/classList">Danh sách</a> <a
-									class="nav-link" href="${base }/addNewClass">Thêm lớp học</a>
-							</nav>
-						</div>
+						<a class="nav-link" href="${base }/courseList">Danh sách</a> <a
+							class="nav-link" href="${base }/addNewCourse">Thêm khóa học</a>
+					</nav>
+				</div>
+				<a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
+					data-bs-target="#pagesCollapseError" aria-expanded="false"
+					aria-controls="pagesCollapseError"> 
+					<div class="sb-nav-link-icon">
+						<i class="fas fa-book-open"></i>
+					</div>
+					Quản lý lớp học
+					<div class="sb-sidenav-collapse-arrow">
+						<i class="fas fa-angle-down"></i>
+					</div>
+				</a>
+				<div class="collapse" id="pagesCollapseError"
+					aria-labelledby="headingOne"
+					data-bs-parent="#sidenavAccordionPages">
+					<nav class="sb-sidenav-menu-nested nav">
+						<a class="nav-link" href="${base }/classList">Danh sách</a> <a
+							class="nav-link" href="${base }/addNewClass">Thêm lớp học</a>
 					</nav>
 				</div>
 				<a class="nav-link collapsed" href="#" data-bs-toggle="collapse"

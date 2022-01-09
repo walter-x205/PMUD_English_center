@@ -31,10 +31,10 @@
 		 <!---This is Content-->
          <div id="layoutSidenav_content">
              <div class="container-fluid px-4">
-                 <div class="row mt-5" style="margin-left: 200px;">
+                 <div class="row mt-5">
                      <div class="card">
                          <div class="card-header bg-header">
-                             <h3 class="fs-2">Thông tin khóa học</h3>
+                             <h3 class="fs-2">Thêm khóa học mới</h3>
                          </div>
                          <div class="card-body">
                              <form class="row g-3" id="form_addNewCourse" name="form_addNewCourse" action="${base}/addNewCourse" method="POST">
@@ -50,7 +50,7 @@
                                  <div class="col-12">
 									<div class="form-floating overflow-auto">
 										<textarea class="form-control" placeholder="Leave a comment here" id="description" name="description" style="height: 350px"></textarea>
-										<label for="Detail">Mô tả khóa học</label>
+<!-- 										<label for="Detail">Mô tả khóa học</label> -->
 									  </div>
                                  </div>
 								<a class="btn btn-secondary" onclick="addNewCourse();" role="button"> Lưu thông tin</a>
