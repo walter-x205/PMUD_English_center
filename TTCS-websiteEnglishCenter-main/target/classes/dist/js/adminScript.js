@@ -217,13 +217,13 @@ function deleteSchedule(x){
 		error: function(jqXhr,textStatus,errorMessage){}
 	});
 }
-function rollCall(){
-	var th= '<th scope="col" id="th_checkin" style="width:150px">Buổi 2 Ngày 11/10</th>';
-	var td= '<td id="form_checkin"><div class="form-check " style="font-size:15px;"><input class="form-check-input " type="checkbox" value="" id="defaultCheck1" ></div></td>';
-	document.getElementById("th_checkin").insertAdjacentHTML("beforebegin", th);
-	document.getElementById("form_checkin").insertAdjacentHTML("beforebegin", td);
-
-}
+//function rollCall(){
+//	var th= '<th scope="col" id="th_checkin" style="width:150px">Buổi 2 Ngày 11/10</th>';
+//	var td= '<td id="form_checkin"><div class="form-check " style="font-size:15px;"><input class="form-check-input " type="checkbox" value="" id="defaultCheck1" ></div></td>';
+//	document.getElementById("th_checkin").insertAdjacentHTML("beforebegin", th);
+//	document.getElementById("form_checkin").insertAdjacentHTML("beforebegin", td);
+//
+//}
 function addStToClass(x,idStudent){
 	var tr = x.parentElement.parentElement;
 	var td = tr.children;
@@ -303,19 +303,16 @@ function saveStListForClass(idclass){
 		var phone =td[4].innerHTML;
 		if(id ==''){
 			id=0;
-//			alert("hdjshsd"+id+" "+idclass+" "+phone);
+//			alert("1:"+id+" "+idclass+" "+phone);
 			var student={idClass: idclass, phone: phone};
 		}else{
-//			alert("gwfs"+id+" "+idclass+" "+phone);
+//			alert("2:"+id+" "+idclass+" "+phone);
 			var student={idStudent: id, idClass: idclass, phone: phone};
 		}
-		
-		
-		
 		stList.push(student);
 	}
 	jQuery.ajax({
-		url:"/addStudentToClass",
+		url:"/addClassMember",
 		type:"post",
 		contentType:"application/json",
 		data:JSON.stringify(stList),
@@ -398,6 +395,20 @@ function updateStudent(idStudent){
 		error: function(jqXhr,textStatus,errorMessage){}
 	});
 }
+//function addClassMember(idClass){
+//	alert(idClass);
+//	$('body').load('/addClassMember?id='+idClass);
+//	jQuery.ajax({
+//		url:"/addClassMember",
+//		type:"post",
+//		contentType:"application/json",
+//		data:JSON.stringify(data),
+//		success: function(jsonResult){
+//			alert("Đã xoá học viên!");
+//		},
+//		error: function(jqXhr,textStatus,errorMessage){}
+//	});
+//}
 function deleteStudentToStudentList(x,idStudent){
 	var tr = x.parentElement.parentElement;
 	tr.remove();
@@ -545,14 +556,14 @@ function checkAttendance(checkExistSchedule,idClass,className){
 }
 function saveAttendanceForClass(idClass){
 		var date = document.getElementById("date").value;
-		var newLesson = document.getElementById("nextLesson").innerHTML ;
+		var newLesson = document.getElementById("nextLesson").value ;
 		var idteacher = $('#teaccherName').val();
 		var enrollmentList = document.getElementById("tbody_modal_attList");
 		var tr = enrollmentList.children;
 		var attList= [];
 		var present=0;
 		var absent=0;
-//		alert(date+" "+newLesson+" "+idteacher);
+		alert(date+" "+newLesson+" "+idteacher);
 		for(var i =0;i<tr.length;i++){
 			var td =tr[i].getElementsByTagName("td");
 			var idStudent =td[0].innerHTML;

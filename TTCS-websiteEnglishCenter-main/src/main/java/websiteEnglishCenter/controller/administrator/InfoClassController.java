@@ -180,18 +180,60 @@ public class InfoClassController {
 		return null;
 		
 	}
-	@RequestMapping(value = { "/addStudentToClass" }, method = RequestMethod.GET)
-	public String addStudentToClass(final Model model, final HttpServletRequest request, final HttpServletResponse response)
-			throws IOException {
+	@RequestMapping(value = {"/addClassMember/{id}"}, method = RequestMethod.GET)
+	public String getAddStudentToClassListById(final Model model, final HttpServletRequest request, final HttpServletResponse response, @PathVariable("id") int id)
+			throws IOException,ParseException {
 		Class1DAO class1DAO = new Class1DAO();
 		ClassDAO classDAO = new ClassDAO();
+		StudentDAO studentDAO = new StudentDAO();
 		SubscriberDAO subscriberDAO = new SubscriberDAO();
 		List<Classmember> stClass = new ArrayList<Classmember>();
+		GeneralClass generalClass = classDAO.getInfoClassByClassID(id); 
 //		stClass = subscriberDAO.getAllSubscribersByIdCourse(0)
+		model.addAttribute("thisClass", generalClass);
 		model.addAttribute("stClass",stClass);
-		return "administrator/infoClass";
+		//lấy danh sách học viên của trung tâm
+		List<Student> studentList = studentDAO.getAllStudents();
+		model.addAttribute("studentList",studentList);
+		// lấy danh sách học viên chưa có trong danh sách lớp bằng id lớp
+		List<Student> studentListNotInClass = studentDAO.getAllStudentsNotInClassByClassID(id);
+		model.addAttribute("studentListNotInClass",studentListNotInClass);
+		GeneralClass infoClass = classDAO.getInfoClassByClassID(id);
+		model.addAttribute("infoClass",infoClass);
+		return "admin/addClassMember";
 	}
-	@RequestMapping(value = {"/addStudentToClass"},method = RequestMethod.POST)
+//	@RequestMapping(value = {"/addStudentToClass"},method = RequestMethod.POST)
+//	public ResponseEntity<Map<String, Object>> ajaxAddStudentToClass(final Model model
+//			,final HttpServletRequest request
+//			,final HttpServletResponse response
+//			,final @RequestBody List<Classmember> stClass) throws IOException{
+//		return null;
+//	}
+	@RequestMapping(value = { "/addStudentToClassList/{ClassID}" }, method = RequestMethod.GET)
+	public String addStudentToClass(final Model model, final HttpServletRequest request, final HttpServletResponse response,  @PathVariable("ClassID") int ClassID)
+			throws IOException {
+//		Class1DAO class1DAO = new Class1DAO();
+//		ClassDAO classDAO = new ClassDAO();
+//		SubscriberDAO subscriberDAO = new SubscriberDAO();
+//		List<Classmember> stClass = new ArrayList<Classmember>();
+//		GeneralClass generalClass = classDAO.getInfoClassByClassID(ClassID); 
+////		stClass = subscriberDAO.getAllSubscribersByIdCourse(0)
+//		model.addAttribute("thisClass", generalClass);
+//		model.addAttribute("stClass",stClass);
+		return "admin/addStudentToClassList";
+	}
+
+	/*
+	 * @RequestMapping(value = { "/addStudentToClass" }, method = RequestMethod.GET)
+	 * public String addStudentToClass(final Model model, final HttpServletRequest
+	 * request, final HttpServletResponse response) throws IOException { Class1DAO
+	 * class1DAO = new Class1DAO(); ClassDAO classDAO = new ClassDAO();
+	 * SubscriberDAO subscriberDAO = new SubscriberDAO(); List<Classmember> stClass
+	 * = new ArrayList<Classmember>(); // stClass =
+	 * subscriberDAO.getAllSubscribersByIdCourse(0)
+	 * model.addAttribute("stClass",stClass); return "administrator/infoClass"; }
+	 */
+	@RequestMapping(value = {"/addClassMember"},method = RequestMethod.POST)
 	public ResponseEntity<Map<String, Object>> ajaxAddStudentToClass(final Model model
 			,final HttpServletRequest request
 			,final HttpServletResponse response
@@ -232,7 +274,7 @@ public class InfoClassController {
 			Schedule tSchedule = new Schedule();
 			model.addAttribute("tSchedule",tSchedule);
 			Class1DAO class1DAO =new Class1DAO();
-		return "administrator/infoClass";
+		return "admin/infoClass";
 	}
 	@RequestMapping(value = {"/addSchedule"},method = RequestMethod.POST)
 	public ResponseEntity<Map<String, Object>> ajaxCreateSchedule(final Model model

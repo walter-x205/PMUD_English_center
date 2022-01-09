@@ -86,8 +86,8 @@
 									</div>
 									<div class="col-xl-3">
 										<label class="form-label">Buổi học thứ</label> <input type="text"
-											id="nextLesson" class="form-control"
-											placeholder="${countLesson+1 }" disabled>
+											id="nextLesson" class="form-control" value="${countLesson+1 }"
+											placeholder="${countLesson+1 }" disabled >
 									</div>
 								</div>
 							</div>
@@ -104,7 +104,7 @@
 													<th scope="col" width="50%">Ghi chú</th>
 												</tr>
 											</thead>
-											<tbody>
+											<tbody id="tbody_modal_attList">
 												<c:forEach items="${studentListOfClass }" var="o">
 													<tr>
 														<td>${o.idStudent }</td>
@@ -126,21 +126,7 @@
 														</td>
 													</tr>
 												</c:forEach>
-												<!-- <tr>
-													<th scope="row">1</th>
-													<td>Tạ Ngọc Tuệ</td>
-													<td>
-														<div class="form-check">
-															<input class="form-check-input" type="radio" name="yes" id="roll-up" checked>
-															<label class="form-check-label" for="roll-up"> Có
-													</td>
-													<td><input class="form-check-input" type="radio"
-														name="no" id="roll-up"> <label class="form-check-label" for="roll-up"> Không</td>
-													</div>
-													</td>
-													<td>(*)</td>
-													<td>...</td>
-												</tr> -->
+												
 											</tbody>
 										</table>
 									</div>
@@ -171,8 +157,7 @@
 								<tr>
 									<th scope="row">${o.idStudent }</th>
 									<td class="row">${o.fullName }</td>
-									<%-- <td style="width: 30px;">${o.idStudent }</td>
-									<td><p style="width: 150px;">${o.fullName }</p></td> --%>
+									
 									<c:forEach items="${attendanceList  }" var="at">
 										<c:if test="${o.idStudent == at.idStudent }">
 											<c:if test="${at.isAttendant == 1 }">

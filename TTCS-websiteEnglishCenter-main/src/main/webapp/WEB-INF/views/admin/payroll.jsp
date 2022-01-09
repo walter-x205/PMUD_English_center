@@ -33,87 +33,108 @@
 			<main>
 				<div class="container-fluid px-4">
 					<div class="row" style="margin-top: 60px;">
-						<div
-							class="mb-2 d-flex justify-content-between align-items-center">
-							<div class="position-relative">
-								<span class="position-absolute search"> <i
-									class="fa fa-search"></i>
-								</span> <input class="form-control w-100"
-									placeholder="Search by id,Họ tên...">
-							</div>
-							<h4 class="table-title mr-1">Danh sách giảng viên</h4>
+						<div class="col-xl-5">
+							<div
+								class="mb-2 d-flex justify-content-between align-items-center">
 
-							<div class="px-2">
-								<select class="form-select">
-									<option selected>Tháng 1/22</option>
-									<option value="1">Tháng 2/22</option>
-									<option value="2">Tháng 3/22</option>
-									<option value="3">Tháng 4/22</option>
-								</select>
+								<div class="position-relative">
+									<span class=" search"></span> <input class="form-control w-50"
+										placeholder="Search by order#, name..."
+										style="margin-left: 145%;">
+								</div>
+								<button type="button"
+									class="btn btn-secondary btn-round fs-5 mt-1"
+									style="margin-left: -90px;">Search</button>
+								<h4 class="table-title" style="position: absolute; float: left;">Chọn
+									Giảng Viên</h4>
+							</div>
+
+							<div class="table-responsive table-scroll">
+								<table class="table table-responsive table-borderless">
+									<thead>
+										<tr class="bg-header ">
+											<th scope="col " width="10% ">ID</th>
+											<th scope="col " width="45% ">Tên giảng viên</th>
+											<th scope="col " width="35% ">Số điện thoai</th>
+											<th scope="col " class="text-end " width="10% "><span>Edit</span></th>
+										</tr>
+									</thead>
+									<c:forEach items="${teacherList }" var="o">
+										<tbody>
+											<tr>
+												<th scope="row ">${o.teacherID}</th>
+												<td id="idTeacher" value="${o.teacherID}">${o.fullName}</td>
+												<td>${o.phone}</td>
+												<td>
+													<button type="button" class="btn btn-secondary btn-round" onclick="chooseTeacherForPayroll(${o.teacherID},${getMonth });">
+														<i class="fas fa-address-card"></i> 
+													</button>
+												</td>
+											</tr>
+										</tbody>
+									</c:forEach>
+								</table>
 							</div>
 						</div>
-						<div class="table-responsive table-scroll">
-							<table class="table table-responsive table-borderless">
-								<thead>
-									<tr class="bg-header ">
-										<th scope="col " width="5% ">ID</th>
-										<th scope="col " width="15% ">Họ Tên</th>
-										<th scope="col " width="15% ">Lớp đã dạy</th>
-										<th scope="col " width="10% ">Số điện thoại</th>
-										<th scope="col " width="15% ">Đơn vị lương</th>
-										<th scope="col " width="10% ">Số buổi dạy</th>
-										<th scope="col " width="15% ">Lương theo lớp</th>
-										<th scope="col " class="text-end " width="9% "><span>Xem
-												thêm</span></th>
-									</tr>
-								</thead>
-								<tbody>
-									<tr>
-										<th scope="row ">1</th>
-										<td>Tạ Tuệ</td>
-										<td>L15</td>
-										<td>098238244</td>
-										<td>30</td>
-										<td>5</td>
-										<td>30*5</td>
-										<td class="text-end"><button type="button"
-												class="btn btn-outline-secondary add-button"
-												data-bs-toggle="modal" data-bs-target="#edit-tution">
-												<i class="fas fa-info-circle"></i></button>
-										</td>
-										<div class="modal fade" id="edit-tution"
-											data-bs-backdrop="static" data-bs-keyboard="false"
-											tabindex="-1" aria-labelledby="edit-tutionLabel"
-											aria-hidden="true">
-											<div class="modal-dialog">
-												<div class="modal-content">
-													<div class="modal-header">
-														<h5 class="modal-title" id="edit-tutionLabel">Thông
-															tin lương giảng viên</h5>
-														<button type="button" class="btn-close"
-															data-bs-dismiss="modal" aria-label="Close"></button>
-													</div>
-													<div class="modal-body">
-														<p>Học tên:</p>
-														<p>Ngày sinh:</p>
-														<p>Số điện thoại:</p>
-														<p>Email:</p>
-														<p>Tổng lương:</p>
-													</div>
-													<div class="modal-footer">
-														<button type="button" class="btn btn-secondary"
-															data-bs-dismiss="modal">Đóng</button>
-														<button type="button" class="btn btn-primary">Lưu</button>
-													</div>
-												</div>
-											</div>
-										</div>
+						<div class="col-md-7 " style="margin-top: -5px;">
+							<div
+								class="mb-2 d-flex justify-content-between align-items-center">
+							</div>
+							<div class="position-relative ">
+								<div class="row">
+									<div class="col-md-6">
+										<h4 class="table-title mr-1" style="margin-left: -150px;">Bảng
+											Tính Lương</h4>
+<%-- 										<c:forEach items="${teacherList }" var="o"> --%>
+<%-- 											<c:if test="${chooseIdTeacher==o.teacherID }"> --%>
+<%-- 												<p>${o.fullName}</p> --%>
+<%-- 											</c:if> --%>
+<%-- 										</c:forEach> --%>
 									</div>
-								</tr>
-
-							</tbody>
-						</table>
+									<div class="col-md-6 mt-1 d-flex">
+										<select class="form-select fs-5 mt-1"
+											aria-label="Default select example" id="month">
+											<c:forEach  begin="1" end="12" varStatus="loop">
+												<option value="${loop.count }" ${(getMonth) == loop.count?"selected":""}>Tháng ${loop.count }/ ${getCurYear } </option>
+											</c:forEach>
+										</select>
+										<button class="btn btn-secondary btn-round fs-5 mt-1" onclick="chooseMonthForPayroll(${chooseIdTeacher});" type="button">Chọn</button>
+									</div>
+								</div>
+							</div>
+							<div class="table-responsive table-scroll">
+								<table class="table table-responsive table-borderless">
+									<thead>
+										<tr class="bg-header ">
+											<th scope="col " width="10% ">ID</th>
+											<th scope="col " width="25% ">Lớp giảng dạy</th>
+											<th scope="col " width="20% ">Đơn vị lương</th>
+											<th scope="col " width="20% ">Số buổi dạy</th>
+											<th scope="col " width="25% ">Lương theo lớp</th>
+										</tr>
+									</thead>
+									<tbody>
+										<c:forEach items="${payrollList }" var="o">
+											<tr>
+												<td>${o.idClass }</td>
+												<c:forEach items="${cList }" var="cList">
+													<c:if test="${cList.idClass==o.idClass }"><td>${cList.className}</td></c:if>
+												</c:forEach>
+												<td>${o.salaryUnit }</td>
+												<td>${o.numberOfTeaching }</td>
+												<td>${o.numberOfTeaching*o.salaryUnit }</td>
+											</tr>
+										</c:forEach>
+										<tr>
+											<td colspan="4">Tổng Lương:</td>
+											<td>${totalMoney}</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
 					</div>
+				</div>
 			</main>
 		</div>
 	</div>
