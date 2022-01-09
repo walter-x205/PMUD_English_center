@@ -119,6 +119,9 @@ public class ManageAttendanceController {
 			List<Attendance> aList =aDao.getAttendance(infoClass.getIdClass());
 			model.addAttribute("attendanceList",aList);
 			List<Attendance> dateOfSchedules =aDao.getDateOfSchedule(infoClass.getIdClass());
+			for (Attendance attendance : dateOfSchedules) {
+				System.out.println(attendance.toString());
+			}
 			model.addAttribute("dateOfSchedules",dateOfSchedules);
 			
 			List<Attendance> listDates =getLessonList(infoClass, courseList, schedulesList);

@@ -63,8 +63,8 @@
 								<c:forEach items="${cList }" var="o">
 									<tbody>
 										<tr>
-											<th scope="row" name="idClass"><a href="${base }/infoClass?id=${o.idClass}"  >${o.idClass}</a></th>
-											<td name="idClass"><a href="${base }/infoClass?id=${o.idClass}"  >${o.className}</a></td>
+											<th scope="row" name="idClass"><a href="${base }/infoClass/${o.idClass}"  >${o.idClass}</a></th>
+											<td name="idClass"><a href="${base }/infoClass/${o.idClass}"  >${o.className}</a></td>
 											<c:forEach items="${courseList }" var="couList">
 												<c:if test="${couList.courseID == o.idCourse }">
 													<td >${couList.courseName}</td>
@@ -76,7 +76,7 @@
 											<c:if test="${o.status==1}"><td>Đang học</td></c:if>
 											<c:if test="${o.status==0}"><td>Hoàn Thành</td></c:if>
 											<td class="text-end">
-												<a href="${base }/infoClass?id=${o.idClass}" role="button"><i class="fas fa-edit"></i></a> 
+												<a href="${base }/infoClass/${o.idClass}" role="button"><i class="fas fa-edit"></i></a> 
 												<a name="delete_btn" onclick="deleteClass(this,${o.idClass});" role="button"><i class="fas fa-times"></i></a>
 											</td>
 											<%-- <td class="d-flex"> 		

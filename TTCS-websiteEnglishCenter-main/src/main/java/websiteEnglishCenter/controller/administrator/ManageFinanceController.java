@@ -63,18 +63,18 @@ public class ManageFinanceController {
 		CourseDAO courseDAO = new CourseDAO();
 		CollectTuitionDAO cTuitionDAO = new CollectTuitionDAO();
 		List<GeneralClass> cList = classDAO.getAllClass();
-		
-		
+		GeneralClass generalClass = new GeneralClass();
+		model.addAttribute("infoClass",generalClass);
 		List<Classmember> classmemberList = null;
 		model.addAttribute("classmemberList",classmemberList);
 		List<Student> studentListOfClass = null;
 		model.addAttribute("studentListOfClass",studentListOfClass);
 		List<Course> courseList = courseDAO.getAllCourses();
 		model.addAttribute("courseList", courseList);
-		for (GeneralClass generalClass : cList) {
+		for (GeneralClass generalClass1 : cList) {
 			for (Course course : courseList) {
-				if (generalClass.getIdCourse() == course.getCourseID()) {
-					generalClass.setCourseName(course.getCourseName());
+				if (generalClass1.getIdCourse() == course.getCourseID()) {
+					generalClass1.setCourseName(course.getCourseName());
 				}else {
 					continue;
 				}
@@ -160,7 +160,7 @@ public class ManageFinanceController {
 		
 	}
 	@RequestMapping(value = { "/payroll/{teacherID}/{getMonth}" }, method = RequestMethod.GET)
-	public String get_pPayroll(final Model model, final HttpServletRequest request, final HttpServletResponse response
+	public String get_Payroll(final Model model, final HttpServletRequest request, final HttpServletResponse response
 			, @PathVariable("teacherID") int teacherID, @PathVariable("getMonth") int getMonth)
 			throws IOException {
 		System.out.println(teacherID);
@@ -192,7 +192,7 @@ public class ManageFinanceController {
 		session.setAttribute("totalMoney", totalMoney);
 		session.setAttribute("payrollList", payrolls);
 		model.addAttribute("getCurYear",getCurYear);
-		return "administrator/payroll";
+		return "admin/payroll";
 
 	}
 	@RequestMapping(value = { "/payroll"}, method = RequestMethod.GET)

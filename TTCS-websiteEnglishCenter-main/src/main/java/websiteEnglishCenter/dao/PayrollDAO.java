@@ -68,6 +68,7 @@ public class PayrollDAO {
 			e.getStackTrace();
 		}
 	}
+
 	public List<Payroll> getPayrolls(int idTeacher,int curmonth){
 		String query = "SELECT attendance.idteacher,schedule.idclass ,COUNT(DISTINCT attendance.lesson),salary.salary\r\n"
 				+ "FROM englishcenter.attendance,englishcenter.schedule, ( SELECT class.idclass,course.idcourse,salaryunit.salary\r\n"

@@ -175,17 +175,6 @@
 									</tr>
 								</c:forEach>
 							</tbody>
-							<!-- <tbody>
-								<tr>
-									<td>14h-17h</td>
-									<td>Thứ 4</td>
-									<td>Phòng 1</td>
-									<td class="text-end">
-										<button type="submit" class="btn btn-secondary btn-round"
-											style="font-size: 12px;">Xóa</button>
-									</td>
-								</tr>
-							</tbody> -->
 						</table>
 					</div>
 				</div>
@@ -196,9 +185,9 @@
 							<button type="button" class="btn btn-secondary btn-round" style="font-size: 12px;" onclick="checkAttendance(${checkExistSchedule},${infoClass.idClass},'${infoClass.className}')">
 								<i class="fas fa-calendar-check"></i> Điểm danh
 							</button>
-							<button type="submit" class="btn btn-primary btn-round" style="font-size: 12px;">
-								<i class="fas fa-user-plus"></i> Thêm sinh viên
-							</button>
+							<a href="${base }/addClassMember/${infoClass.idClass}" class="btn btn-primary btn-round" style="font-size: 12px;" >
+								<i class="fas fa-user-plus" ></i> Thêm sinh viên
+							</a>
 						</div>
 
 					</div>
