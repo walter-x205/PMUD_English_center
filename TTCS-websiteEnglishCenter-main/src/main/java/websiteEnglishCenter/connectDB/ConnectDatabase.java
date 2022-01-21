@@ -11,8 +11,8 @@ public class ConnectDatabase {
 	private static Connection connection;
     private static String url = "jdbc:mysql://127.0.0.1:3306/";
     private static String user = "root";
-//    private static String password = "tangoctue1502";
-    private static String password = "NgocThuy1997";
+    private static String password = "tangoctue1502";
+//    private static String password = "NgocThuy1997";
 
     public static Connection getConnection() throws SQLException {
         connection = DriverManager.getConnection(url, user, password);

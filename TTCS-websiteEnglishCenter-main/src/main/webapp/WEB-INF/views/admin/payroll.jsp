@@ -47,7 +47,7 @@
 									Giảng Viên</h4>
 							</div>
 
-							<div class="table-responsive table-scroll">
+							<div class="table-responsive table-scroll tableFixHead">
 								<table class="table table-responsive table-borderless">
 									<thead>
 										<tr class="bg-header ">
@@ -100,7 +100,7 @@
 									</div>
 								</div>
 							</div>
-							<div class="table-responsive table-scroll">
+							<div class="table-responsive table-scroll tableFixHead">
 								<table class="table table-responsive table-borderless">
 									<thead>
 										<tr class="bg-header ">

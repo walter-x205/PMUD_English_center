@@ -152,7 +152,7 @@
 								Lịch</button>
 						</div>
 					</div>
-					<div class="table-responsive scroll-clean">
+					<div class="table-responsive scroll-clean tableFixHead">
 						<table class="table table-responsive table-borderless" id="scheduleTable">
 							<thead>
 								<tr class="bg-header">
@@ -192,7 +192,7 @@
 
 					</div>
 
-					<div class="table-responsive table-scroll">
+					<div class="table-responsive table-scroll tableFixHead">
 						<table class="table table-responsive table-borderless">
 							<thead>
 								<tr class="bg-header">

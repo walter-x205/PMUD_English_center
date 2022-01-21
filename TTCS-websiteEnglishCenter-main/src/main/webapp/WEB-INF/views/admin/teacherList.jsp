@@ -39,7 +39,7 @@
 									class="fa fa-ellipsis-h ms-3"></i>
 							</div>
 						</div>
-						<div class="table-responsive table-scroll">
+						<div class="table-responsive table-scroll tableFixHead">
 							<table class="table table-responsive table-borderless table-hover">
 								<thead>
 									<tr class="bg-header">
