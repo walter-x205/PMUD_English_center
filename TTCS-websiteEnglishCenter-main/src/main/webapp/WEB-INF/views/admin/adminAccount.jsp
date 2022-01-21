@@ -47,7 +47,6 @@
 									<tr class="bg-header">
 										<th scope="col" width="8%">ID</th>
 										<th scope="col" width="20%">Tên đăng nhập/Email</th>
-										<th scope="col" width="15%">Mật khẩu</th>
 										<th scope="col" width="15%">Số điện thoại</th>
 										<th scope="col" width="20%">Email</th>
 										<th scope="col" width="10%">Vị trí</th>
@@ -61,7 +60,6 @@
 									<tr>
 										<th scope="row">${a.idUser}</th>
 										<td>${a.username }</td>
-										<td>${a.password }</td>
 										<td>${a.phone }</td>
 										<td>${a.email }</td>
 										<td>${a.accountType }</td>
