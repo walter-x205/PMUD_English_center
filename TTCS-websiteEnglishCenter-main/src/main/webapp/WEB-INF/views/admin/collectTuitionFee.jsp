@@ -37,7 +37,10 @@
 					<div class="row" style="margin-top: 60px;">
 						<div class="col-xl-5">
 							<div class="mb-2 d-flex justify-content-between align-items-center">
-
+<!-- 								<div class="position-relative" style="display: flex;"> -->
+<!-- 	                               <input class="form-control w-100" placeholder="Search by order#, name..."> -->
+<!-- 	                               <button class="btn text-light bg-secondary ms-1" id="btnNavbarSearch"><i class="fas fa-search"></i></button> -->
+<!-- 	                           </div> -->
                                 <div class="position-relative"> <span class=" search"></span>
                                     <input class="form-control w-75" placeholder="By name or id" style="margin-left: 120%;">
                                 </div>
