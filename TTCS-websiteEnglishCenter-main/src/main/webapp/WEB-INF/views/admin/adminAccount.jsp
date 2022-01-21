@@ -55,7 +55,6 @@
 									<tr class="bg-header">
 										<th scope="col" width="8%">ID</th>
 										<th scope="col" width="20%">Tên đăng nhập/Email</th>
-										<th scope="col" width="15%">Mật khẩu</th>
 										<th scope="col" width="15%">Số điện thoại</th>
 										<th scope="col" width="20%">Email</th>
 										<th scope="col" width="10%">Vị trí</th>
@@ -66,20 +65,16 @@
 								</thead>
 								<tbody>
 									<c:forEach items="${adminAccountList }" var="a">
-										<tr>
-											<th scope="row">${a.idUser}</th>
-											<td>${a.username }</td>
-											<td>${a.password }</td>
-											<td>${a.phone }</td>
-											<td>${a.email }</td>
-											<td>${a.accountType }</td>
-											<c:if test="${sessionScope.admin.role == 'ADMIN' }">
-												<td class="text-end"><a
-													href="${base}/addNewAccountStaff"><i
-														class="fas fa-edit"></i></a> <a href=""><i
-														class="fas fa-times"></i></a></td>
-											</c:if>
-										</tr>
+									<tr>
+										<th scope="row">${a.idUser}</th>
+										<td>${a.username }</td>
+										<td>${a.phone }</td>
+										<td>${a.email }</td>
+										<td>${a.accountType }</td>
+										<c:if test="${sessionScope.admin.role == 'ADMIN' }">
+										<td class="text-end"><a href="${base}/addNewAccountStaff"><i class="fas fa-edit"></i></a> <a href=""><i class="fas fa-times"></i></a></td>
+										</c:if>
+									</tr>
 									</c:forEach>
 								</tbody>
 							</table>
