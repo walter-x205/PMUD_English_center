@@ -41,7 +41,7 @@
 									<h4 class="table-title mr-1">Danh sách đăng kí học</h4>
 								</div>
 							</div>
-							<div class="table-responsive table-scroll">
+							<div class="table-responsive h-50 tableFixHead"  style="margin-bottom: -40px; width: 600px;overflow-y: auto; height: 110px;">
 								<table class="table table-responsive table-borderless">
 									<thead>
 										<tr class="bg-header ">
@@ -49,8 +49,8 @@
 											<th scope="col " width="20% ">Họ tên</th>
 											<th scope="col " width="20% ">Ngày sinh</th>
 											<th scope="col " width="15% ">Giới tính</th>
-											<th scope="col " width="15% ">SĐT</th>
-											<th scope="col " width="20% ">Ngày đăng kí</th>
+											<th scope="col " width="10% ">SĐT</th>
+											<th scope="col " width="25% ">Ngày đăng kí</th>
 											<th scope="col " class="text-end " width="5% "><span>Add</span></th>
 										</tr>
 									</thead>
@@ -91,7 +91,7 @@
 								</button>
 							</div>
 
-							<div class="table-responsive h-50" style="margin-bottom: -40px;">
+							<div class="table-responsive h-50 tableFixHead"  style="margin-bottom: -40px; width: 600px;overflow-y: auto; height: 110px;">
 								<table class="table table-responsive table-borderless  " >
 									<thead>
 										<tr class="bg-header ">
@@ -127,7 +127,7 @@
                                     <button type="button" class="btn btn-secondary btn-round w-20 mb-1 ml-5" onclick="saveStListForClass(${infoClass.idClass});" style="z-index:1000; float:right;">Thêm sinh viên vào lớp</button>
                                 </div>
 								
-								<div class="table-responsive table-scroll" style="height: 270px;">
+								<div class="table-responsive tableFixHead" style="margin-bottom: -40px;overflow-y: auto; height: 270px;">
 									<table class="table table-responsive table-borderless">
 										<thead>
 											<tr class="bg-header">

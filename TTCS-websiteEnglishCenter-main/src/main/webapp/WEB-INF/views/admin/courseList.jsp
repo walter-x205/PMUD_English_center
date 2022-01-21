@@ -47,7 +47,7 @@
 								khóa học mới</a> <i class="fa fa-ellipsis-h ms-3"></i>
 							</div>
 						</div>
-						<div class="table-responsive table-scroll">
+						<div class="table-responsive table-scroll tableFixHead" >
 							<table class="table table-responsive table-borderless">
 								<thead>
 									<tr class="bg-header">

@@ -45,7 +45,7 @@
                                 <h4 class="table-title" style="position: absolute;float: left;">Danh sách Lớp</h4>
                             </div>
 							
-							<div class="table-responsive table-scroll">
+							<div class="table-responsive table-scroll tableFixHead">
 								<table class="table table-responsive table-borderless">
 									<thead>
 										<tr class="bg-header ">
@@ -84,7 +84,7 @@
 
 								<h4 class="table-title mr-1">Danh sách Học viên</h4>
 							</div>
-							<div class="table-responsive table-scroll">
+							<div class="table-responsive table-scroll tableFixHead">
 								<table class="table table-responsive table-borderless">
 									<thead>
 										<tr class="bg-header ">

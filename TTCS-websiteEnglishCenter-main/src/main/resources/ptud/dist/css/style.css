@@ -304,7 +304,20 @@ div.sticky {
     color: #1d62f0!important;
 }
 
+.tableFixHead {
+    overflow: auto;
+/*     height: 100px; */
+}
 
+.tableFixHead thead th {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+
+.tableFixHead thead tr th {
+    background-color: #6c757d;
+}
 /*Set table data */
 
 .table {
