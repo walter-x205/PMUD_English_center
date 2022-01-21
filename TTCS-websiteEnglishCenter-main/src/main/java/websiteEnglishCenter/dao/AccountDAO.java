@@ -7,8 +7,10 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+
 import websiteEnglishCenter.connectDB.ConnectDatabase;
 import websiteEnglishCenter.dto.Account;
+import websiteEnglishCenter.dto.Admin;
 import websiteEnglishCenter.dto.Staff;
 import websiteEnglishCenter.dto.StaffPosition;
 import websiteEnglishCenter.dto.Student;
@@ -325,5 +327,37 @@ public class AccountDAO {
 	}
 	public static void main(String[] args) {
 		System.out.println();
+	}
+	
+	public Admin adminSignIn(String user, String pass) {
+		Admin login = null;
+		String query ="SELECT * \n"
+				+ "FROM\n"
+				+ "(\n"
+				+ "(SELECT * \n"
+				+ "FROM englishcenter.account_user a, englishcenter.staff b\n"
+				+ "WHERE \n"
+				+ "a.iduser = b.idstaff and\n"
+				+ "(account_type = 'ADMIN' or account_type = 'STAFF'))\n"
+				+ "UNION\n"
+				+ "(SELECT * \n"
+				+ "FROM englishcenter.account_user a, englishcenter.teacher c\n"
+				+ "WHERE \n"
+				+ "a.iduser = c.idteacher and\n"
+				+ "account_type = 'TEACHER')) acc\n"
+				+ "WHERE acc.username = ? and acc.password = ?;";
+		try {
+			connection = new ConnectDatabase().getConnection();
+			ps = connection.prepareStatement(query);
+			ps.setString(1, user);
+			ps.setString(2, pass);
+			rs = ps.executeQuery();
+			while (rs.next()) {
+				login = new Admin(rs.getInt(1), rs.getString(13), rs.getString(7), rs.getString(3), rs.getString(4), rs.getString(12), rs.getString(11), rs.getString(5));
+			}
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		return login;
 	}
 }

@@ -11,13 +11,17 @@ import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+
 
 import websiteEnglishCenter.dao.AccountDAO;
 import websiteEnglishCenter.dao.Class1DAO;
@@ -27,7 +31,9 @@ import websiteEnglishCenter.dao.StatisticalDAO;
 import websiteEnglishCenter.dao.StudentDAO;
 import websiteEnglishCenter.dao.TeacherDAO;
 import websiteEnglishCenter.dto.GeneralClass;
+import websiteEnglishCenter.dto.SignIn;
 import websiteEnglishCenter.dto.Account;
+import websiteEnglishCenter.dto.Admin;
 import websiteEnglishCenter.dto.Course;
 import websiteEnglishCenter.dto.Student;
 import websiteEnglishCenter.dto.Teacher;
@@ -101,5 +107,37 @@ public class AdminHomepageController {
 //		return "administrator/teacherList";
 	}
 	
-
+	@RequestMapping(value = { "/home" }, method = RequestMethod.GET)
+	public String homepage(ModelMap model, final HttpServletRequest request, final HttpServletResponse response)
+			throws IOException {
+		SignIn login = new SignIn();
+		model.addAttribute("admin-login", login);
+		return "admin/homepage";
+	}
+	
+	@RequestMapping(value = { "/ad-login" }, method = RequestMethod.POST)
+	public String doAdLogin(final ModelMap model, final HttpServletRequest request, final HttpServletResponse response,
+			final @ModelAttribute("admin-login") SignIn login)
+			throws IOException {
+		model.addAttribute("admin-login", login);
+		AccountDAO dao = new AccountDAO();
+		Admin log = new Admin();
+		log = dao.adminSignIn(login.getUsername(), login.getPassword());
+		if (log == null) {
+			model.addAttribute("mess", "Username or Password is not correct");
+			return homepage(model, request, response);
+		} else {
+			HttpSession session = request.getSession();
+			session.setAttribute("admin", log);
+			return "admin/admin";
+		}
+	}
+	
+	@RequestMapping(value = { "/ad-logout" }, method = RequestMethod.GET)
+	public String doLogout(final ModelMap model, final HttpServletRequest request, final HttpServletResponse response)
+			throws IOException {
+		HttpSession session = request.getSession();
+		session.removeAttribute("admin");
+		return homepage(model, request, response);
+	}
 }

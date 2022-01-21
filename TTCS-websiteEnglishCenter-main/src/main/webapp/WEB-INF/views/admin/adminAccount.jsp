@@ -32,12 +32,14 @@
 								<span class="position-absolute search"><i class="fa fa-search"></i></span> <input class="form-control w-100"
 									placeholder="Search by order#, name...">
 							</div>
+							<c:if test="${sessionScope.admin.role == 'ADMIN' }">
 							<div class="px-2">
 								<a href="${base }/addNewAccountStaff" type="button" class="btn btn-secondary add-button">
 									<i class="fas fa-plus"></i> Thêm tài khoản mới
 								</a>
 								<i class="fa fa-ellipsis-h ms-3"></i>
 							</div>
+							</c:if>
 						</div>
 						<div class="table-responsive table-scroll">
 							<table class="table table-responsive table-borderless table-hover">
@@ -49,7 +51,9 @@
 										<th scope="col" width="15%">Số điện thoại</th>
 										<th scope="col" width="20%">Email</th>
 										<th scope="col" width="10%">Vị trí</th>
+										<c:if test="${sessionScope.admin.role == 'ADMIN'}">
 										<th scope="col" class="text-end" width="10%"><span>Action</span></th>
+										</c:if>
 									</tr>
 								</thead>
 								<tbody>
@@ -61,7 +65,9 @@
 										<td>${a.phone }</td>
 										<td>${a.email }</td>
 										<td>${a.accountType }</td>
-										<td class="text-end"><a href=""><i class="fas fa-edit"></i></a> <a href=""><i class="fas fa-times"></i></a></td>
+										<c:if test="${sessionScope.admin.role == 'ADMIN' }">
+										<td class="text-end"><a href="${base}/addNewAccountStaff"><i class="fas fa-edit"></i></a> <a href=""><i class="fas fa-times"></i></a></td>
+										</c:if>
 									</tr>
 									</c:forEach>
 								</tbody>
