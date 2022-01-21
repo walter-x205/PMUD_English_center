@@ -34,13 +34,10 @@
 					<div class="row" style="margin-top: 60px;">
 						<div
 							class="mb-2 d-flex justify-content-between align-items-center">
-							<div class="position-relative">
-<!-- 								<input class="form-control w-25 m-l5 mb-1" -->
-<!-- 									placeholder="By name or id "> -->
-<!-- 								<button type="button" class="btn btn-secondary btn-round ml1 mb-1 "> -->
-<!-- 									<i class="fas fa-search"></i> -->
-<!-- 								</button> -->
-							</div>
+							<div class="position-relative" style="display: flex;">
+                                <input class="form-control w-100" placeholder="Search...">
+                                <button class="btn text-light bg-secondary ms-1" id="btnNavbarSearch"><i class="fas fa-search"></i></button>
+                            </div>
 							<div class="px-2">
 								<a type="button" class="btn btn-secondary add-button"
 								href="${base }/addNewCourse"><i class="fas fa-plus"></i>Thêm
