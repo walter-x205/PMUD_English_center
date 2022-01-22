@@ -136,13 +136,15 @@ public class AccountDAO {
 	}
 	public void insertAccountStudent(int idStudent, String username, String password ) {
 		System.out.println(idStudent+ " "+username+" "+password);
-		String query ="INSERT INTO `englishcenter`.`account_user` (`iduser`, `username`, `password`, `isstudent`) VALUES (?, ?, ?, '1');";
+		String accountType = "STUDENT";
+		String query ="INSERT INTO `englishcenter`.`account_user` (`iduser`, `username`, `password`, `account_type`) VALUES (?, ?, ?, ?);";
 		try {
 			connection = new ConnectDatabase().getConnection();
 			ps = connection.prepareStatement(query);
 			ps.setInt(1, idStudent);
 			ps.setString(2, username);
 			ps.setString(3, password);
+			ps.setString(4, accountType);
 			ps.executeUpdate();
 		} catch (Exception e) {
 			e.getStackTrace();
@@ -150,13 +152,15 @@ public class AccountDAO {
 	}
 	public void insertAccountTeacher(int idTeacher, String username, String password ) {
 		System.out.println(idTeacher+ " "+username+" "+password);
-		String query ="INSERT INTO `englishcenter`.`account_user` (`iduser`, `username`, `password`, `isteacher`) VALUES (?, ?, ?, '1');";
+		String accountType = "TEACHER";
+		String query ="INSERT INTO `englishcenter`.`account_user` (`iduser`, `username`, `password`, `account_type`) VALUES (?, ?, ?, ?);";
 		try {
 			connection = new ConnectDatabase().getConnection();
 			ps = connection.prepareStatement(query);
 			ps.setInt(1, idTeacher);
 			ps.setString(2, username);
 			ps.setString(3, password);
+			ps.setString(4, accountType);
 			ps.executeUpdate();
 		} catch (Exception e) {
 			e.getStackTrace();
